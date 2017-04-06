@@ -1,0 +1,14 @@
+[
+  {"action": "POST", "object": "/v1/%UUID%/snapshots", "subject": "snapshotsAdmin"},
+  {"action": "GET", "object": "/v1/%UUID%/snapshots/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "POST", "object": "/v1/%UUID%/snapshots/%UUID%/action", "subject": "snapshotsAdmin"},
+  {"action": "DELETE", "object": "/v1/%UUID%/snapshots/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "DELETE", "object": "/v1/%UUID%/volumes/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "POST", "object": "/v2/%UUID%/volumes", "subject": "snapshotsAdmin"},
+  {"action": "GET", "object": "/v2/%UUID%/volumes/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "POST", "object": "/v2/%UUID%/snapshots", "subject": "snapshotsAdmin"},
+  {"action": "GET", "object": "/v2/%UUID%/snapshots/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "POST", "object": "/v2/%UUID%/snapshots/%UUID%/action", "subject": "snapshotsAdmin"},
+  {"action": "DELETE", "object": "/v2/%UUID%/snapshots/%UUID%", "subject": "snapshotsAdmin"},
+  {"action": "DELETE", "object": "/v2/%UUID%/volumes/%UUID%", "subject": "snapshotsAdmin"}
+]

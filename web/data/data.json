@@ -1,0 +1,62 @@
+[
+    {
+        "Subject": "imageAdmin",
+        "Action": "镜像管理员",
+        "Object": "对Glance中的镜像进行管理操作",
+        "Url": "<a href='imageAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "qosAdmin",
+        "Action": "质量保证管理员",
+        "Object": "对Cinder中磁盘QOS进行管理",
+        "Url": "<a href='qosAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "snapshotsAdmin",
+        "Action": "快照管理员",
+        "Object": "对Cinder中磁盘快照进行管理",
+        "Url": "<a href='snapshotsAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "employAdmin",
+        "Action": "人员管理员",
+        "Object": "管理Keystone中的租户、用户和角色",
+        "Url": "<a href='employAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "quotaAdmin",
+        "Action": "配额管理员",
+        "Object": "管理Cinder中的配额",
+        "Url": "<a href='quotaAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "policyAdmin",
+        "Action": "策略管理员",
+        "Object": "对Keystone进行策略配置",
+        "Url": "<a href='policyAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "agentAdmin",
+        "Action": "代理管理员",
+        "Object": "对Nova中的代理进行管理",
+        "Url": "<a href='agentAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "instanceAdmin",
+        "Action": "实例管理员",
+        "Object": "对Nova中的实例进行管理",
+        "Url": "<a href='instanceAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "netConfigAdmin",
+        "Action": "网络管理员",
+        "Object": "对Neutron中的网络配置进行管理",
+        "Url": "<a href='netConfigAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    },
+    {
+        "Subject": "lbAdmin",
+        "Action": "负载均衡管理员",
+        "Object": "对Neutron进行负载均衡管理",
+        "Url": "<a href='lbAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
+    }
+]

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap-editable.css" rel="stylesheet" />
+	<link href="css/bootstrap-table.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .title {
+            height: 80px;
+            margin-top: 60px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <!--<div>-->
+        <!--<label>Cells: </label><input id="cells" type="text" placeholder="Cells" value="5">-->
+        <!--<label>Rows: </label><input id="rows" type="text" placeholder="Rows" value="100">-->
+        <!--<button id="build" class="btn btn-default">Build</button>-->
+    <!--</div>-->
+    <div class="title">
+        <h1>OpenStack最小特权管理员列表展示</h1>
+    </div>
+	<button id="build" type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick="append()"> 
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加 
+	</button> 
+	<button id="btnDel" type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick=""> 
+		<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>删除 
+	</button> 
+
+	<table id="table">  </table>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table-editable.js"></script>
+<script src="js/bootstrap-editable.js"></script>
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+</div> 
+<script> 
+function append() { 
+var strAppend = '<tr><td></td><td><a1 href="#" id="OK" name="Subject" data-type="text" data-pk=+row.Id+"" data-title="用户名">新角色</a1></td><td><a1 href="#" id="OK" name="Action" data-type="text" data-pk=+row.Id+"" data-title="用户名">新名称</a1></td><td><a1 href="#" id="OK" name="Object" data-type="text" data-pk=+row.Id+"" data-title="用户名">新职能</a1></td><td><a href="#" class="btn btn-primary btn-sm" role="button">查看</a></td></tr>'; 
+$("#table").append(strAppend).editableTableWidget();
+$("#table").bootstrapTable();
+} 
+</script>
+<script type="text/javascript">
+
+    var curRow = {};
+    $(function () {
+        $("#table").bootstrapTable({
+            toolbar: "#toolbar",
+            idField: "Id",
+            pagination: true,
+            showRefresh: true,
+            search: true,
+            clickToSelect: true,
+            queryParams: function (param) {
+                return {};
+            },
+            url: "data/data.json",
+            columns: [{
+                checkbox: true
+            }, 
+			{
+                field: "Subject",
+                title: "管理员角色",
+                formatter: function (value, row, index)
+				{
+                    return "<a1 href=\"#\" name=\"Subject\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员角色\">" + value + "</a1>";
+                }
+            }, 
+			{
+                field: "Action",
+                title: "管理员名称",
+				formatter: function (value, row, index)
+				{
+                    return "<a1 href=\"#\" name=\"Action\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员名称\">" + value + "</a1>";
+                }
+            }, 
+			{
+                field: "Object",
+                title: "管理员职能",
+                formatter: function (value, row, index)
+				{
+                    return "<a1 href=\"#\" name=\"Object\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
+                }
+            },
+            {
+                field: "Url",
+                title: "具体职能"
+            }],
+            onClickRow: function (row, $element) {
+                curRow = row;
+            },
+            onLoadSuccess: function (aa, bb, cc) {
+                $("#table a1").editable({
+                    url: function (params) {
+                        var sName = $(this).attr("name");
+                        curRow[sName] = params.value;
+                        $.ajax({
+                            type: 'POST',
+                            url: "data/data.json",
+                            data: curRow,
+                            dataType: 'JSON',
+                            success: function (data, textStatus, jqXHR) {
+
+                            },
+                            error: function () { }
+                        });
+                    },
+                    type: 'text'
+                });
+            },
+        });
+    });
+</script>
+</body>
+</html>

@@ -52,11 +52,5 @@
         "Action": "网络管理员",
         "Object": "对Neutron中的网络配置进行管理",
         "Url": "<a href='netConfigAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
-    },
-    {
-        "Subject": "lbAdmin",
-        "Action": "负载均衡管理员",
-        "Object": "对Neutron进行负载均衡管理",
-        "Url": "<a href='lbAdmin.html' class='btn btn-primary btn-sm' role='button'>查看</a>"
     }
 ]

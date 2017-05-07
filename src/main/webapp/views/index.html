@@ -79,7 +79,7 @@
                                 依赖阈值：
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" id="inputEmail" class="form-control" placeholder="" required autofocus>
+                                <input type="text" id="inputEmail" class="form-control" placeholder="范围为0到1的小数" required autofocus>
                             </div>
                         </div>
                         <div class="row form-row">
@@ -87,18 +87,15 @@
                                 管理员数量：
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" id="inputPassword" class="form-control" placeholder="" required>
+                                <input type="text" id="inputPassword" class="form-control" placeholder="正整数，默认为1" required>
                             </div>
                         </div>
                     </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        提交更改
-                    </button>
+                    <button id="update" type="button" class="btn btn-primary">提交更改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
@@ -115,9 +112,14 @@
 <script src="../js/tableExport.js"></script>
 <script src="../js/bootstrap-table-export.js"></script>
 <script>
-    function launchModal() {
-        $("#example").modal('show');
-    }
+    $("#update").click(function () {
+        $.ajax({
+            url:"api/test",
+            success:function(result){
+                alert(result);
+            }
+        });
+    });
     function tdclick(tdobject){
         var td=$(tdobject);
         td.attr("onclick", "");

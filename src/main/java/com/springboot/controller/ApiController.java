@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @RequestMapping("/api")
-public class MainController extends SpringBootServletInitializer {
+public class ApiController extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(MainController.class);
+        return application.sources(ApiController.class);
     }
 
     @RequestMapping("/")
@@ -29,13 +29,16 @@ public class MainController extends SpringBootServletInitializer {
         return jsonObject.toString();
     }
 
-    @RequestMapping(value = "/fuck", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody
     String index() {
+        System.out.println("test");
         return "Hello World!";
     }
 
+
+
     public static void main(String[] args) {
-        SpringApplication.run(MainController.class, args);
+        SpringApplication.run(ApiController.class, args);
     }
 }

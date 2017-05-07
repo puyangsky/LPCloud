@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table.min.css">
     <style type="text/css">
         .title {
             height: 80px;
@@ -16,20 +16,15 @@
 </head>
 <body>
 <div class="container">
-    <!--<div>-->
-        <!--<label>Cells: </label><input id="cells" type="text" placeholder="Cells" value="5">-->
-        <!--<label>Rows: </label><input id="rows" type="text" placeholder="Rows" value="100">-->
-        <!--<button id="build" class="btn btn-default">Build</button>-->
-    <!--</div>-->
     <div class="title">
-        <h1>OpenStack最小特权策略展示</h1>
+        <h1>质量保证管理员权限展示</h1>
     </div>
-    <button type="button" class="btn btn-primary" onclick="showPolicy()">显示策略</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary" onclick="showAdmin()">显示管理员</button>
+    <div style="float: right; margin: 12px">
+        <a href="index.html" class="btn btn-default btn-sm" role="button">返回首页</a>
+    </div>
     <table id="table"
            data-toggle="table"
-           data-url="data/data1.json"
+           data-url="../data/qosAdmin.json"
            data-show-columns="true"
            data-search="true"
            data-show-refresh="true"
@@ -45,13 +40,13 @@
         </thead>
     </table>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <!--<script src="assets/bootstrap2.3/js/bootstrap.min.js"></script>-->
-<script src="js/tableExport.js"></script>
-<script src="js/jquery.base64.js"></script>
-<script src="js/bootstrap-table.js"></script>
-<script src="js/bootstrap-table-export.js"></script>
+<script src="../js/tableExport.js"></script>
+<script src="../js/jquery.base64.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-export.js"></script>
 <script>
     $(function () {
         $('#build').click(build);//.trigger('click');
@@ -92,12 +87,6 @@
         return value + 100;
     }
 
-    function showPolicy() {
-        location.href = "index3.html";
-    }
-    function showAdmin() {
-        location.href = "index.html";
-    }
 </script>
 </body>
 </html>

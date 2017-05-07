@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table.min.css">
     <style type="text/css">
         .title {
             height: 80px;
@@ -28,7 +28,7 @@
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="data/instanceAdmin.json"
+           data-url="../data/netConfigAdmin.json"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
@@ -37,14 +37,14 @@
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
     </button>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-table-editable.js"></script>
-<script src="js/bootstrap-editable.js"></script>
-<script src="js/bootstrap-table.js"></script>
-<script src="js/bootstrap-table-zh-CN.js"></script>
-<script src="js/tableExport.js"></script>
-<script src="js/bootstrap-table-export.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table-editable.js"></script>
+<script src="../js/bootstrap-editable.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+<script src="../js/tableExport.js"></script>
+<script src="../js/bootstrap-table-export.js"></script>
 <script>
     function tdclick(tdobject){
         var td=$(tdobject);
@@ -104,7 +104,7 @@
             queryParams: function (param) {
                 return {};
             },
-            url: "data/instanceAdmin.json",
+            url: "../data/netConfigAdmin.json",
             columns: [{
                 checkbox: true
             },
@@ -142,7 +142,7 @@
                         curRow[sName] = params.value;
                         $.ajax({
                             type: 'POST',
-                            url: "data/instanceAdmin.json",
+                            url: "../data/netConfigAdmin.json",
                             data: curRow,
                             dataType: 'JSON',
                             success: function (data, textStatus, jqXHR) {

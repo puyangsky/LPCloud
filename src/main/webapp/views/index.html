@@ -3,15 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-editable.css" rel="stylesheet" />
-    <link href="css/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-editable.css" rel="stylesheet" />
+    <link href="../css/bootstrap-table.min.css" rel="stylesheet" />
 
     <style type="text/css">
         .title {
             height: 80px;
             margin-top: 60px;
             text-align: center;
+        }
+        .config{
+            text-align: right;
+        }
+        .form-body{
+            text-align: center;
+        }
+        .form-row{
+            margin: 10px;
+        }
+        .mylabel {
+            text-align: right;
+            font-size: medium;
+            padding-top: 5px;
         }
     </style>
 
@@ -26,11 +40,15 @@
     <div class="title">
         <h1>OpenStack最小特权管理员列表展示</h1>
     </div>
+    <!-- 按钮触发模态框 -->
+    <button class="btn btn-primary btn-sm config" data-toggle="modal" data-target="#myModal">
+        更改配置
+    </button>
     <table id="table"
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="data/data.json"
+           data-url="../data/data.json"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
@@ -38,17 +56,68 @@
     <button id="build" type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick="append()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
     </button>
+
+    <!--<h2>创建模态框（Modal）</h2>-->
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        更改LPCloud配置
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form form-body">
+                        <div class="row form-row">
+                            <div class="col-xs-4 mylabel">
+                                依赖阈值：
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" id="inputEmail" class="form-control" placeholder="" required autofocus>
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-xs-4 mylabel">
+                                管理员数量：
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" id="inputPassword" class="form-control" placeholder="" required>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-table-editable.js"></script>
-<script src="js/bootstrap-editable.js"></script>
-<script src="js/bootstrap-table.js"></script>
-<script src="js/bootstrap-table-zh-CN.js"></script>
-<script src="js/tableExport.js"></script>
-<script src="js/bootstrap-table-export.js"></script>
-</div>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table-editable.js"></script>
+<script src="../js/bootstrap-editable.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+<script src="../js/tableExport.js"></script>
+<script src="../js/bootstrap-table-export.js"></script>
 <script>
+    function launchModal() {
+        $("#example").modal('show');
+    }
     function tdclick(tdobject){
         var td=$(tdobject);
         td.attr("onclick", "");

@@ -14,7 +14,8 @@
             text-align: center;
         }
         .config{
-            text-align: right;
+            float: right;
+            margin: 10px;
         }
         .form-body{
             text-align: center;
@@ -26,6 +27,11 @@
             text-align: right;
             font-size: medium;
             padding-top: 5px;
+        }
+        #result {
+            display: none;
+            font-size: medium;
+            color: red;
         }
     </style>
 
@@ -40,6 +46,9 @@
     <div class="title">
         <h1>OpenStack最小特权管理员列表展示</h1>
     </div>
+
+    <div id="result">更新成功！</div>
+
     <!-- 按钮触发模态框 -->
     <button class="btn btn-primary btn-sm config" data-toggle="modal" data-target="#myModal">
         更改配置
@@ -79,7 +88,7 @@
                                 依赖阈值：
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" id="inputEmail" class="form-control" placeholder="范围为0到1的小数" required autofocus>
+                                <input type="text" id="threshold" class="form-control" placeholder="范围为0到1的小数" required autofocus>
                             </div>
                         </div>
                         <div class="row form-row">
@@ -87,7 +96,7 @@
                                 管理员数量：
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" id="inputPassword" class="form-control" placeholder="正整数，默认为1" required>
+                                <input type="text" id="adminCount" class="form-control" placeholder="正整数，默认为1" required>
                             </div>
                         </div>
                     </form>
@@ -101,6 +110,7 @@
         </div><!-- /.modal -->
     </div>
 
+
 </div>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/jquery.min.js"></script>
@@ -113,10 +123,18 @@
 <script src="../js/bootstrap-table-export.js"></script>
 <script>
     $("#update").click(function () {
+        var threshold = $("#threshold").val();
+        var count = $("#adminCount").val();
+        var data = {"threshold": threshold, "count": count};
         $.ajax({
-            url:"api/test",
+            url:"api/update",
+            type:"POST",
+            contentType: 'application/json',
+            data: JSON.stringify(data),
             success:function(result){
-                alert(result);
+                $("#myModal").modal('hide');
+//                alert(result);
+                $('#result').show().delay(2000).hide(0);
             }
         });
     });

@@ -1,15 +1,14 @@
-package com.springboot;
+package com.springboot.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
 import com.springboot.model.User;
 import com.springboot.service.UpdateService;
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,20 +17,13 @@ import java.io.IOException;
 
 /**
  * Author: puyangsky
- * Date: 17/5/7
+ * Date: 17/5/9
  */
-
-@SpringBootApplication
+@Controller
 @RequestMapping("/api")
-public class ApiController extends SpringBootServletInitializer {
-
+public class ApiController {
     @Resource
-    UpdateService updateService;
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(ApiController.class);
-    }
+    private UpdateService updateService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -79,8 +71,14 @@ public class ApiController extends SpringBootServletInitializer {
         }
     }
 
-
-    public static void main(String[] args) {
-        SpringApplication.run(ApiController.class, args);
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @ResponseBody
+    String logout(HttpServletRequest request) {
+        if (request.getSession().getAttribute("user") != null) {
+            request.getSession().setAttribute("user", null);
+            return "success";
+        }else {
+            return "fail";
+        }
     }
 }

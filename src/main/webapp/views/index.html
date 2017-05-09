@@ -34,6 +34,11 @@
             color: red;
             text-align: center;
         }
+
+        .logout{
+            float: right;
+            margin: 10px;
+        }
     </style>
 
 </head>
@@ -46,6 +51,12 @@
     <!--</div>-->
     <div class="title">
         <h1>OpenStack最小特权管理员列表展示</h1>
+    </div>
+
+    <div class="logout">
+        <button id="logout" class="btn btn-primary btn-sm">
+            退出登录
+        </button>
     </div>
 
     <div id="result">更新成功！</div>
@@ -140,6 +151,19 @@
             }
         });
     });
+
+    $("#logout").click(function () {
+        $.ajax({
+            url:"api/logout",
+            type:"POST",
+            success:function(result){
+                if (result == "success") {
+                    window.location.href="/login";
+                }
+            }
+        });
+    });
+
     function tdclick(tdobject){
         var td=$(tdobject);
         td.attr("onclick", "");

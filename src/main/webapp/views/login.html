@@ -20,7 +20,14 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+        #loginSuccess {
+            display: none;
+            text-align: center;
+            margin: 10px;
+            font-size: large;
+        }
+    </style>
 
 </head>
 
@@ -40,6 +47,7 @@
             </label>
         </div>
         <button id="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+        <div id="loginSuccess"></div>
     </form>
 
 </div>
@@ -53,19 +61,26 @@
             url:"api/login",
             type:"POST",
             contentType: 'application/json',
+            async:false,
+            timeout:1000,
             data: JSON.stringify(user),
             success:function(result){
                 if (result == "success") {
-                    console.log("hello");
-                    window.location.href = "/index";
+//                    alert("登录成功");
+                    $("#loginSuccess").html("登录成功").show().delay(2000).hide(0);
+                    setTimeout(function () {
+                        window.location.href = "/index";
+                    }, 1000);
                 }else {
-//                    alert("登录失败");
-                    window.location.href = "/index";
+                    $("#loginSuccess").html("登录失败").show().delay(2000).hide(0);
+                    setTimeout(function () {
+                        window.location.href = "/login";
+                    }, 1000);
                 }
             },
-            error:function (data) {
-//                alert("error");
-                window.location.href = "/index";
+            error:function (xhr,status) {
+                alert("error: " + status);
+                window.location.href = "/login";
             }
         });
     });

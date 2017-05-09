@@ -32,6 +32,7 @@
             display: none;
             font-size: medium;
             color: red;
+            text-align: center;
         }
     </style>
 
@@ -53,6 +54,9 @@
     <button class="btn btn-primary btn-sm config" data-toggle="modal" data-target="#myModal">
         更改配置
     </button>
+    <button id="build" type="button" class="btn btn-primary btn-sm config" data-toggle="modal" data-target="" onclick="append()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
+    </button>
     <table id="table"
            data-show-columns="true"
            data-search="true"
@@ -62,9 +66,7 @@
            data-show-toggle="true"
            data-pagination="true"
            data-height="500">  </table>
-    <button id="build" type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick="append()">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
-    </button>
+
 
     <!--<h2>创建模态框（Modal）</h2>-->
 

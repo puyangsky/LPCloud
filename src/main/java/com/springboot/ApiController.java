@@ -1,13 +1,17 @@
-package com.springboot.controller;
+package com.springboot;
 
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
+import com.springboot.model.User;
+import com.springboot.service.UpdateService;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -21,6 +25,9 @@ import java.io.IOException;
 @RequestMapping("/api")
 public class ApiController extends SpringBootServletInitializer {
 
+    @Resource
+    UpdateService updateService;
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(ApiController.class);
@@ -30,7 +37,7 @@ public class ApiController extends SpringBootServletInitializer {
     @ResponseBody
     String home() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("hello", "SpringBoot");
+        jsonObject.put("hello", "LPCloud");
         return jsonObject.toString();
     }
 
@@ -40,9 +47,11 @@ public class ApiController extends SpringBootServletInitializer {
         try {
             BufferedInputStream bis = new BufferedInputStream(request.getInputStream());
             byte[] bytes = new byte[1024];
-            bis.read(bytes);
-            String s = new String(bytes);
-            return s;
+            StringBuilder sb = new StringBuilder();
+            while (bis.read(bytes) !=0) {
+                sb.append(new String(bytes));
+            }
+            return sb.toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +61,22 @@ public class ApiController extends SpringBootServletInitializer {
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     String test(@RequestBody Model model) {
+        updateService.update(model);
         return model == null ? "" : model.toString();
+    }
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
+    @ResponseBody
+    String login(HttpServletRequest request, @RequestBody User user) {
+        if (user == null)
+            return "fail";
+        if (user.getEmail().equals("admin@osvt.net") && user.getPassword().equals("123456")){
+            request.getSession().setAttribute("user", "admin");
+            return "success";
+        }else {
+            return "fail";
+        }
     }
 
 

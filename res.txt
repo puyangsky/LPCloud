@@ -1,963 +1,1420 @@
-POST	/os-agents
-GET	/os-networks
-POST	/servers
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-POST	/os-server-groups
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-POST	/os-agents
-DELETE	/os-agents/{agent_build_id}
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-DELETE	/os-agents/{agent_build_id}
-GET	/os-agents
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-GET	/os-agents
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-POST	/os-agents
-GET	/os-agents
-DELETE	/os-agents/{agent_build_id}
-DELETE	/os-agents/{agent_build_id}
-POST	/os-agents
-PUT	/os-agents/{agent_build_id}
-DELETE	/os-agents/{agent_build_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-hosts
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-GET	/os-aggregates/{aggregate_id}
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-GET	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-GET	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-GET	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-GET	/os-aggregates/{aggregate_id}
-POST	/os-aggregates/{aggregate_id}/action
-GET	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-PUT	/os-aggregates/{aggregate_id}
-GET	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-GET	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-hosts
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-POST	/os-aggregates/{aggregate_id}/action
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-GET	/os-hosts
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates
-POST	/os-aggregates
-POST	/os-aggregates
-POST	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-DELETE	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-GET	/os-aggregates/{aggregate_id}
-DELETE	/os-aggregates/{aggregate_id}
-GET	/os-aggregates/{aggregate_id}
-GET	/os-aggregates
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-POST	/os-aggregates/{aggregate_id}/action
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-POST	/os-aggregates
-POST	/os-aggregates/{aggregate_id}/action
-DELETE	/os-aggregates/{aggregate_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-availability-zone
-GET	/os-availability-zone/detail
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-availability-zone/detail
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-fixed-ips/{fixed_ip}
-POST	/os-fixed-ips/{fixed_ip}/action
-POST	/os-fixed-ips/{fixed_ip}/action
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-fixed-ips/{fixed_ip}/action
-GET	/os-fixed-ips/{fixed_ip}
-POST	/os-fixed-ips/{fixed_ip}/action
-POST	/os-fixed-ips/{fixed_ip}/action
-POST	/os-fixed-ips/{fixed_ip}/action
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/flavors
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/{flavor_id}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/{flavor_id}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/{flavor_id}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/{flavor_id}
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-POST	/servers
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-POST	/flavors
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/detail
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/flavors
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/flavors
-POST	/flavors/{flavor_id}/action
-GET	/flavors/detail
-POST	/flavors/{flavor_id}/action
-GET	/flavors/detail
-DELETE	/flavors/{flavor_id}
-POST	/flavors
-GET	/flavors/{flavor_id}/os-flavor-access
-DELETE	/flavors/{flavor_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/flavors
-POST	/flavors/{flavor_id}/action
-POST	/flavors/{flavor_id}/action
-POST	/flavors/{flavor_id}/action
-DELETE	/flavors/{flavor_id}
-POST	/flavors
-GET	/flavors/{flavor_id}/os-flavor-access
-DELETE	/flavors/{flavor_id}
-POST	/flavors
-POST	/flavors/{flavor_id}/action
-DELETE	/flavors/{flavor_id}
-POST	/flavors
-POST	/flavors/{flavor_id}/action
-POST	/flavors/{flavor_id}/action
-POST	/flavors/{flavor_id}/action
-DELETE	/flavors/{flavor_id}
-POST	/flavors
-POST	/flavors/{flavor_id}/action
-DELETE	/flavors/{flavor_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-POST	/flavors
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/flavors/{flavor_id}/os-extra_specs
-GET	/flavors/{flavor_id}/os-extra_specs
-POST	/flavors/{flavor_id}/os-extra_specs
-GET	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-POST	/flavors/{flavor_id}/os-extra_specs
-GET	/flavors/{flavor_id}/os-extra_specs
-PUT	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-GET	/flavors/{flavor_id}/os-extra_specs
-DELETE	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-DELETE	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-POST	/flavors
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-POST	/flavors/{flavor_id}/os-extra_specs
-POST	/flavors/{flavor_id}/os-extra_specs
-DELETE	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-POST	/flavors/{flavor_id}/os-extra_specs
-PUT	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-DELETE	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-PUT	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-PUT	/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-floating-ips-bulk
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-floating-ips-bulk
-GET	/os-floating-ips-bulk
-PUT	/os-floating-ips-bulk/delete
-PUT	/os-floating-ips-bulk/delete
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts/{host_name}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-hosts
-GET	/os-hosts
-GET	/os-hosts/{host_name}
-GET	/os-hosts/{host_name}
-GET	/os-hosts
-GET	/os-hosts/{host_name}
-GET	/os-hosts/{host_name}
-GET	/os-hosts
-GET	/os-hosts/{host_name}
-GET	/os-hosts/{host_name}
-GET	/os-hosts
-GET	/os-hosts/{host_name}
-GET	/os-hosts/{host_name}
-GET	/os-hosts
-PUT	/os-hosts/{host_name}
-GET	/os-hosts
-PUT	/os-hosts/{host_name}
-GET	/os-hosts
-PUT	/os-hosts/{host_name}
-GET	/os-hosts
-PUT	/os-hosts/{host_name}
-PUT	/os-hosts/{host_name}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-hypervisors
-GET	/os-hypervisors/detail
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}/servers
-GET	/os-hypervisors/statistics
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}
-GET	/os-hypervisors/{hypervisors_id}/uptime
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}/search
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-hypervisors/detail
-GET	/os-hypervisors
-GET	/os-hypervisors/statistics
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}/uptime
-GET	/os-hypervisors/{hypervisors_id}/uptime
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}/search
-GET	/os-hypervisors/{hypervisors_id}/search
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}
-GET	/os-hypervisors/{hypervisors_id}
-GET	/os-hypervisors
-GET	/os-hypervisors/{hypervisors_id}/servers
-GET	/os-hypervisors/{hypervisors_id}/servers
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-instance_usage_audit_log/{before_timestamp}
-GET	/os-instance_usage_audit_log
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-instance_usage_audit_log/{before_timestamp}
-GET	/os-instance_usage_audit_log
-GET	/os-instance_usage_audit_log/{before_timestamp}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-keypairs
-POST	/os-keypairs
-GET	/os-keypairs/{keypair_name}
-POST	/os-keypairs
-GET	/os-keypairs
-DELETE	/os-keypairs/{keypair_name}
-DELETE	/os-keypairs/{keypair_name}
-DELETE	/os-keypairs/{keypair_name}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-migrations
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-migrations
-GET	/flavors/{flavor_id}
-POST	/flavors
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/flavors/{flavor_id}
-GET	/flavors/detail
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/flavors/{flavor_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-networks
-GET	/os-networks/{network_id}
-GET	/os-networks
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-quota-class-sets/default
-PUT	/os-quota-class-sets/default
-PUT	/os-quota-class-sets/default
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-DELETE	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}/defaults
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}/defaults
-PUT	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-networks
-POST	/servers
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-networks
-POST	/servers
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-networks
-POST	/servers
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-GET	/limits
-PUT	/os-quota-sets/{tenant_id}
-POST	/os-security-groups
-PUT	/os-quota-sets/{tenant_id}
-GET	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-POST	/os-security-groups
-POST	/os-security-group-rules
-DELETE	/os-security-groups/230
-PUT	/os-quota-sets/{tenant_id}
-PUT	/os-quota-sets/{tenant_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-GET	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-GET	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-GET	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-GET	/os-security-group-default-rules/{security_group_default_rule_id}
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-POST	/os-security-group-default-rules
-GET	/os-security-group-default-rules
-DELETE	/os-security-group-default-rules/{security_group_default_rule_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-POST	/os-security-groups
-POST	/os-security-groups
-POST	/os-security-groups
-POST	/os-security-groups
-GET	/os-security-groups
-GET	/os-security-groups
-DELETE	/os-security-groups/237
-DELETE	/os-security-groups/236
-DELETE	/os-security-groups/234
-DELETE	/os-security-groups/233
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/detail
-GET	/servers/detail
-GET	/servers/detail
-GET	/servers/detail
-POST	/servers/{server_id}/action
-GET	/servers
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers
-GET	/servers
-DELETE	/servers/{server_id}
-POST	/servers/{server_id}/action
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-POST	/servers/{server_id}/action
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/servers/{server_id}/diagnostics
-POST	/servers/{server_id}/action
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-POST	/servers/{server_id}/action
-POST	/servers/{server_id}/action
-POST	/servers/{server_id}/action
-POST	/servers/999/action
-GET	/flavors/{flavor_id}
-GET	/os-quota-sets/{tenant_id}/defaults
-POST	/flavors
-POST	/servers/{server_id}/action
-DELETE	/flavors/{flavor_id}
-GET	/flavors/{flavor_id}
-GET	/os-quota-sets/{tenant_id}/defaults
-POST	/flavors
-POST	/servers/{server_id}/action
-DELETE	/flavors/{flavor_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-GET	/os-services
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-simple-tenant-usage/{tenant_id}
-GET	/os-simple-tenant-usage/{tenant_id}
-GET	/os-simple-tenant-usage
-DELETE	/servers/{server_id}
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
-GET	/os-networks
-POST	/servers
-POST	/os-server-groups
-GET	/os-simple-tenant-usage/
-GET	/os-simple-tenant-usage/{tenant_id}
-GET	/os-simple-tenant-usage
-DELETE	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-GET	/servers/{server_id}
-DELETE	/os-server-groups/{server_group_id}
+create_test_server
+	POST-/os-agents
+	GET-/os-networks
+	POST-/servers
+	DELETE-/os-agents/{agent_build_id}
+
+create_test_server_group
+	POST-/os-agents
+	POST-/os-server-groups
+	DELETE-/os-agents/{agent_build_id}
+
+test_create_agent
+	POST-/os-agents
+	POST-/os-agents
+	DELETE-/os-agents/{agent_build_id}
+	DELETE-/os-agents/{agent_build_id}
+
+test_delete_agent
+	POST-/os-agents
+	DELETE-/os-agents/{agent_build_id}
+	GET-/os-agents
+	DELETE-/os-agents/{agent_build_id}
+
+test_list_agents
+	POST-/os-agents
+	GET-/os-agents
+	DELETE-/os-agents/{agent_build_id}
+
+test_list_agents_with_filter
+	POST-/os-agents
+	POST-/os-agents
+	GET-/os-agents
+	DELETE-/os-agents/{agent_build_id}
+	DELETE-/os-agents/{agent_build_id}
+	POST-/os-agents
+
+test_update_agent
+	PUT-/os-agents/{agent_build_id}
+	DELETE-/os-agents/{agent_build_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-hosts
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_aggregate_add_host_create_server_with_az
+	POST-/os-server-groups
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/os-aggregates/{aggregate_id}/action
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_add_host_get_details
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	GET-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates/{aggregate_id}/action
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_add_host_list
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	GET-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_add_remove_host
+	DELETE-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_create_delete
+	DELETE-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+	GET-/os-aggregates/{aggregate_id}
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_create_delete_with_az
+	POST-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+	GET-/os-aggregates/{aggregate_id}
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_create_update_metadata_get_details
+	POST-/os-aggregates
+	GET-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates/{aggregate_id}/action
+	GET-/os-aggregates/{aggregate_id}
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_create_update_with_az
+	POST-/os-aggregates
+	PUT-/os-aggregates/{aggregate_id}
+	GET-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_create_verify_entry_in_list
+	POST-/os-aggregates
+	GET-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-hosts
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_aggregate_add_existent_host
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	POST-/os-aggregates/{aggregate_id}/action
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_add_host_as_user
+	DELETE-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_add_non_exist_host
+	DELETE-/os-aggregates/{aggregate_id}
+	GET-/os-hosts
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_create_aggregate_name_length_exceeds_255
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_create_aggregate_name_length_less_than_1
+	POST-/os-aggregates
+
+test_aggregate_create_as_user
+	POST-/os-aggregates
+
+test_aggregate_create_with_existent_aggregate_name
+	POST-/os-aggregates
+	POST-/os-aggregates
+	POST-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_delete_as_user
+	POST-/os-aggregates
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_delete_with_invalid_id
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_get_details_as_user
+	DELETE-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates
+	GET-/os-aggregates/{aggregate_id}
+
+test_aggregate_get_details_with_invalid_id
+	DELETE-/os-aggregates/{aggregate_id}
+
+test_aggregate_list_as_user
+	GET-/os-aggregates/{aggregate_id}
+	GET-/os-aggregates
+
+test_aggregate_remove_host_as_user
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	POST-/os-aggregates/{aggregate_id}/action
+	POST-/os-aggregates/{aggregate_id}/action
+
+test_aggregate_remove_nonexistent_host
+	DELETE-/os-aggregates/{aggregate_id}
+	POST-/os-aggregates
+	POST-/os-aggregates/{aggregate_id}/action
+	DELETE-/os-aggregates/{aggregate_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_get_availability_zone_list
+	POST-/os-server-groups
+
+test_get_availability_zone_list_detail
+	GET-/os-availability-zone
+	GET-/os-availability-zone/detail
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_get_availability_zone_list_detail_with_non_admin_user
+	GET-/os-availability-zone/detail
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_list_fixed_ip_details
+	POST-/os-server-groups
+	GET-/os-fixed-ips/{fixed_ip}
+
+test_set_reserve
+
+test_set_unreserve
+	POST-/os-fixed-ips/{fixed_ip}/action
+	POST-/os-fixed-ips/{fixed_ip}/action
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_fixed_ip_with_invalid_action
+	POST-/os-fixed-ips/{fixed_ip}/action
+
+test_list_fixed_ip_details_with_non_admin_user
+
+test_set_reserve_with_invalid_ip
+	GET-/os-fixed-ips/{fixed_ip}
+
+test_set_reserve_with_non_admin_user
+	POST-/os-fixed-ips/{fixed_ip}/action
+
+test_set_unreserve_with_non_admin_user
+	POST-/os-fixed-ips/{fixed_ip}/action
+	POST-/os-fixed-ips/{fixed_ip}/action
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_create_flavor_using_string_ram
+	POST-/os-server-groups
+	POST-/flavors
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+
+test_create_flavor_verify_entry_in_list_details
+	POST-/flavors
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+
+test_create_flavor_with_int_id
+	GET-/flavors/detail
+	POST-/flavors
+	GET-/flavors/{flavor_id}
+	DELETE-/flavors/{flavor_id}
+
+test_create_flavor_with_none_id
+	GET-/flavors/detail
+	POST-/flavors
+	GET-/flavors/{flavor_id}
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+
+test_create_flavor_with_uuid_id
+	POST-/flavors
+	GET-/flavors/{flavor_id}
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+
+test_create_list_flavor_without_extra_data
+	POST-/flavors
+	GET-/flavors/{flavor_id}
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+
+test_create_server_with_non_public_flavor
+	GET-/flavors/detail
+	POST-/flavors
+	POST-/servers
+	DELETE-/flavors/{flavor_id}
+
+test_is_public_string_variations
+	GET-/flavors/detail
+	POST-/flavors
+	POST-/flavors
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+
+test_list_non_public_flavor
+	GET-/flavors/detail
+	POST-/flavors
+	GET-/flavors/detail
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+
+test_list_public_flavor_with_other_user
+	GET-/flavors/detail
+	POST-/flavors
+	GET-/flavors/detail
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_flavor_access_add_remove
+	POST-/flavors
+	POST-/flavors/{flavor_id}/action
+	GET-/flavors/detail
+	POST-/flavors/{flavor_id}/action
+	GET-/flavors/detail
+
+test_flavor_access_list_with_private_flavor
+	DELETE-/flavors/{flavor_id}
+	POST-/flavors
+	GET-/flavors/{flavor_id}/os-flavor-access
+	DELETE-/flavors/{flavor_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_add_flavor_access_duplicate
+	POST-/os-server-groups
+	POST-/flavors
+	POST-/flavors/{flavor_id}/action
+	POST-/flavors/{flavor_id}/action
+	POST-/flavors/{flavor_id}/action
+
+test_flavor_access_list_with_public_flavor
+	DELETE-/flavors/{flavor_id}
+	POST-/flavors
+	GET-/flavors/{flavor_id}/os-flavor-access
+
+test_flavor_non_admin_add
+	DELETE-/flavors/{flavor_id}
+	POST-/flavors
+	POST-/flavors/{flavor_id}/action
+
+test_flavor_non_admin_remove
+	DELETE-/flavors/{flavor_id}
+	POST-/flavors
+	POST-/flavors/{flavor_id}/action
+	POST-/flavors/{flavor_id}/action
+	POST-/flavors/{flavor_id}/action
+
+test_remove_flavor_access_not_found
+	DELETE-/flavors/{flavor_id}
+	POST-/flavors
+	POST-/flavors/{flavor_id}/action
+	DELETE-/flavors/{flavor_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	POST-/flavors
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_flavor_non_admin_get_all_keys
+	POST-/flavors/{flavor_id}/os-extra_specs
+
+test_flavor_non_admin_get_specific_key
+	GET-/flavors/{flavor_id}/os-extra_specs
+	POST-/flavors/{flavor_id}/os-extra_specs
+
+test_flavor_set_get_update_show_unset_keys
+	GET-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	POST-/flavors/{flavor_id}/os-extra_specs
+	GET-/flavors/{flavor_id}/os-extra_specs
+	PUT-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	GET-/flavors/{flavor_id}/os-extra_specs
+	DELETE-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	DELETE-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	POST-/flavors
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_flavor_get_nonexistent_key
+	POST-/os-server-groups
+
+test_flavor_non_admin_set_keys
+	GET-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+
+test_flavor_non_admin_unset_keys
+	POST-/flavors/{flavor_id}/os-extra_specs
+	POST-/flavors/{flavor_id}/os-extra_specs
+	DELETE-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+
+test_flavor_non_admin_update_specific_key
+	POST-/flavors/{flavor_id}/os-extra_specs
+
+test_flavor_unset_nonexistent_key
+	PUT-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+
+test_flavor_update_mismatch_key
+	DELETE-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+
+test_flavor_update_more_key
+	PUT-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	PUT-/flavors/{flavor_id}/os-extra_specs/{flavor_extra_spec_key}
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-floating-ips-bulk
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_create_list_delete_floating_ips_bulk
+	POST-/os-server-groups
+	POST-/os-floating-ips-bulk
+	GET-/os-floating-ips-bulk
+	PUT-/os-floating-ips-bulk/delete
+	PUT-/os-floating-ips-bulk/delete
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_list_hosts
+
+test_list_hosts_with_a_blank_zone
+	GET-/os-hosts
+
+test_list_hosts_with_nonexistent_zone
+	GET-/os-hosts
+
+test_list_hosts_with_zone
+	GET-/os-hosts
+	GET-/os-hosts
+
+test_show_host_detail
+	GET-/os-hosts
+	GET-/os-hosts
+	GET-/os-hosts/{host_name}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_list_hosts_with_non_admin_user
+
+test_reboot_host_with_non_admin_user
+	GET-/os-hosts
+	GET-/os-hosts
+
+test_reboot_nonexistent_host
+	GET-/os-hosts/{host_name}/reboot
+
+test_show_host_detail_with_non_admin_user
+	GET-/os-hosts/{host_name}/reboot
+	GET-/os-hosts
+
+test_show_host_detail_with_nonexistent_hostname
+	GET-/os-hosts/{host_name}
+
+test_shutdown_host_with_non_admin_user
+	GET-/os-hosts/{host_name}
+	GET-/os-hosts
+
+test_shutdown_nonexistent_host
+	GET-/os-hosts/{host_name}/shutdown
+
+test_startup_host_with_non_admin_user
+	GET-/os-hosts/{host_name}/shutdown
+	GET-/os-hosts
+
+test_startup_nonexistent_host
+	GET-/os-hosts/{host_name}/startup
+
+test_update_host_with_invalid_maintenance_mode
+	GET-/os-hosts/{host_name}/startup
+	GET-/os-hosts
+
+test_update_host_with_invalid_status
+	PUT-/os-hosts/{host_name}
+	GET-/os-hosts
+
+test_update_host_with_non_admin_user
+	PUT-/os-hosts/{host_name}
+	GET-/os-hosts
+
+test_update_host_without_param
+	PUT-/os-hosts/{host_name}
+	GET-/os-hosts
+	PUT-/os-hosts/{host_name}
+
+test_update_nonexistent_host
+	PUT-/os-hosts/{host_name}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_get_hypervisor_list
+	GET-/os-hypervisors
+
+test_get_hypervisor_list_details
+
+test_get_hypervisor_show_details
+	GET-/os-hypervisors/detail
+	GET-/os-hypervisors
+	GET-/os-hypervisors/{hypervisors_id}
+
+test_get_hypervisor_show_servers
+	GET-/os-hypervisors
+	GET-/os-hypervisors/{hypervisors_id}/servers
+
+test_get_hypervisor_stats
+	GET-/os-hypervisors/statistics
+
+test_get_hypervisor_uptime
+	GET-/os-hypervisors
+	GET-/os-hypervisors/{hypervisors_id}
+
+test_search_hypervisor
+	GET-/os-hypervisors/{hypervisors_id}/uptime
+	GET-/os-hypervisors
+	GET-/os-hypervisors/{hypervisors_id}/search
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_get_hypervisor_list_details_with_non_admin_user
+	POST-/os-server-groups
+	GET-/os-hypervisors/detail
+
+test_get_hypervisor_list_with_non_admin_user
+
+test_get_hypervisor_stats_with_non_admin_user
+	GET-/os-hypervisors
+
+test_get_hypervisor_uptime_with_non_admin_user
+	GET-/os-hypervisors/statistics
+	GET-/os-hypervisors
+	GET-/os-hypervisors/{hypervisors_id}/uptime
+
+test_get_nonexistent_hypervisor_uptime
+
+test_search_hypervisor_with_non_admin_user
+	GET-/os-hypervisors/{hypervisors_id}/uptime
+	GET-/os-hypervisors
+
+test_search_nonexistent_hypervisor
+	GET-/os-hypervisors/{hypervisors_id}/search
+
+test_show_hypervisor_with_non_admin_user
+	GET-/os-hypervisors/{hypervisors_id}/search
+	GET-/os-hypervisors
+
+test_show_nonexistent_hypervisor
+	GET-/os-hypervisors/{hypervisors_id}
+
+test_show_servers_with_non_admin_user
+	GET-/os-hypervisors/{hypervisors_id}
+	GET-/os-hypervisors
+
+test_show_servers_with_nonexistent_hypervisor
+	GET-/os-hypervisors/{hypervisors_id}/servers
+	GET-/os-hypervisors/{hypervisors_id}/servers
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_get_instance_usage_audit_log
+	POST-/os-server-groups
+
+test_list_instance_usage_audit_logs
+	GET-/os-instance_usage_audit_log/{before_timestamp}
+	GET-/os-instance_usage_audit_log
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_get_instance_usage_audit_logs_with_invalid_time
+	POST-/os-server-groups
+
+test_instance_usage_audit_logs_with_nonadmin_user
+	GET-/os-instance_usage_audit_log/{before_timestamp}
+	GET-/os-instance_usage_audit_log
+	GET-/os-instance_usage_audit_log/{before_timestamp}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_admin_manage_keypairs_for_other_users
+	POST-/os-server-groups
+	POST-/os-keypairs
+	POST-/os-keypairs
+	GET-/os-keypairs/{keypair_name}
+	POST-/os-keypairs
+	GET-/os-keypairs
+	DELETE-/os-keypairs/{keypair_name}
+	DELETE-/os-keypairs/{keypair_name}
+	DELETE-/os-keypairs/{keypair_name}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_list_migrations
+	POST-/os-server-groups
+	GET-/os-migrations
+
+test_list_migrations_in_flavor_resize_situation
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+test_resize_server_revert_deleted_flavor
+	GET-/os-migrations
+	GET-/flavors/{flavor_id}
+	POST-/flavors
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/flavors/{flavor_id}
+	GET-/flavors/detail
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/flavors/{flavor_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_get_network
+	GET-/os-networks
+
+test_list_all_networks
+	GET-/os-networks/{network_id}
+	GET-/os-networks
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_update_default_quotas
+	POST-/os-server-groups
+	GET-/os-quota-class-sets/default
+	PUT-/os-quota-class-sets/default
+	PUT-/os-quota-class-sets/default
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_delete_quota
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	DELETE-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+
+test_get_default_quotas
+	GET-/os-quota-sets/{tenant_id}/defaults
+
+test_get_updated_quotas
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+
+test_update_all_quota_resources_for_tenant
+	GET-/os-quota-sets/{tenant_id}/defaults
+	PUT-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_create_server_when_cpu_quota_is_full
+	POST-/os-server-groups
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-networks
+	POST-/servers
+
+test_create_server_when_instances_quota_is_full
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-networks
+	POST-/servers
+
+test_create_server_when_memory_quota_is_full
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-networks
+	POST-/servers
+
+test_security_groups_exceed_limit
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+	GET-/limits
+	PUT-/os-quota-sets/{tenant_id}
+	POST-/os-security-groups
+
+test_security_groups_rules_exceed_limit
+	PUT-/os-quota-sets/{tenant_id}
+	GET-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	POST-/os-security-groups
+	POST-/os-security-group-rules
+	DELETE-/os-security-groups/{security_group_id}
+
+test_update_quota_normal_user
+	PUT-/os-quota-sets/{tenant_id}
+	PUT-/os-quota-sets/{tenant_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_create_delete_security_group_default_rules
+	POST-/os-security-group-default-rules
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+	GET-/os-security-group-default-rules/{security_group_default_rule_id}
+	POST-/os-security-group-default-rules
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+	GET-/os-security-group-default-rules/{security_group_default_rule_id}
+	POST-/os-security-group-default-rules
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+
+test_create_security_group_default_rule_with_blank_cidr
+	GET-/os-security-group-default-rules/{security_group_default_rule_id}
+	POST-/os-security-group-default-rules
+
+test_create_security_group_default_rule_without_cidr
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+	POST-/os-security-group-default-rules
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+
+test_default_security_group_default_rule_show
+	POST-/os-security-group-default-rules
+	GET-/os-security-group-default-rules/{security_group_default_rule_id}
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+
+test_security_group_default_rules_list
+	POST-/os-security-group-default-rules
+	GET-/os-security-group-default-rules
+	DELETE-/os-security-group-default-rules/{security_group_default_rule_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+
+test_list_security_groups_list_all_tenants_filter
+	POST-/os-server-groups
+	POST-/os-security-groups
+	POST-/os-security-groups
+	POST-/os-security-groups
+	POST-/os-security-groups
+	GET-/os-security-groups
+	GET-/os-security-groups
+	DELETE-/os-security-groups/{security_group_id}
+	DELETE-/os-security-groups/{security_group_id}
+	DELETE-/os-security-groups/{security_group_id}
+	DELETE-/os-security-groups/{security_group_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_create_server_with_scheduling_hint
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+test_get_server_diagnostics_by_admin
+
+test_list_servers_by_admin
+	GET-/servers/detail
+
+test_list_servers_by_admin_with_all_tenants
+	GET-/servers/detail
+
+test_list_servers_by_admin_with_specified_tenant
+	GET-/servers/detail
+	GET-/servers/detail
+
+test_list_servers_filter_by_error_status
+	POST-/servers/{server_id}/action
+	GET-/servers
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+
+test_list_servers_filter_by_exist_host
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers
+	GET-/servers
+	DELETE-/servers/{server_id}
+
+test_rebuild_server_in_error_state
+	POST-/servers/{server_id}/action
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+test_reset_network_inject_network_info
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+
+test_reset_state_server
+	POST-/servers/{server_id}/action
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+create_test_server
+	GET-/os-networks
+	POST-/servers
+
+create_test_server_group
+	POST-/os-server-groups
+
+test_get_server_diagnostics_by_non_admin
+
+test_migrate_non_existent_server
+	GET-/servers/{server_id}/diagnostics
+	POST-/servers/{server_id}/action
+
+test_migrate_server_invalid_state
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	POST-/servers/{server_id}/action
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+test_reset_state_server_invalid_state
+	POST-/servers/{server_id}/action
+	POST-/servers/{server_id}/action
+
+test_reset_state_server_invalid_type
+	POST-/servers/{server_id}/action
+
+test_reset_state_server_nonexistent_server
+	POST-/servers/{server_id}/action
+
+test_resize_server_using_overlimit_ram
+	GET-/flavors/{flavor_id}
+	GET-/os-quota-sets/{tenant_id}/defaults
+	POST-/flavors
+	POST-/servers/{server_id}/action
+	DELETE-/flavors/{flavor_id}
+
+test_resize_server_using_overlimit_vcpus
+	GET-/flavors/{flavor_id}
+	GET-/os-quota-sets/{tenant_id}/defaults
+	POST-/flavors
+	POST-/servers/{server_id}/action
+	DELETE-/flavors/{flavor_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_get_service_by_host_name
+	POST-/os-server-groups
+	GET-/os-services
+
+test_get_service_by_service_and_host_name
+	GET-/os-services
+	GET-/os-services
+
+test_get_service_by_service_binary_name
+	GET-/os-services
+	GET-/os-services
+
+test_list_services
+	GET-/os-services
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_get_service_by_invalid_params
+	GET-/os-services
+
+test_get_service_by_invalid_service_and_valid_host
+	GET-/os-services
+	GET-/os-services
+	GET-/os-services
+
+test_get_service_with_valid_service_and_invalid_host
+	GET-/os-services
+
+test_list_services_with_non_admin_user
+	GET-/os-services
+	GET-/os-services
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+	GET-/os-networks
+	POST-/servers
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+	POST-/os-server-groups
+
+test_get_usage_tenant
+
+test_get_usage_tenant_with_non_admin_user
+	GET-/os-simple-tenant-usage/{tenant_id}
+
+test_list_usage_all_tenants
+	GET-/os-simple-tenant-usage/{tenant_id}
+	GET-/os-simple-tenant-usage
+	DELETE-/servers/{server_id}
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}
+
+create_test_server
+	GET-/os-networks
+
+create_test_server_group
+	POST-/servers
+
+test_get_usage_tenant_with_empty_tenant_id
+	POST-/os-server-groups
+
+test_get_usage_tenant_with_invalid_date
+	GET-/os-simple-tenant-usage/
+	GET-/os-simple-tenant-usage/{tenant_id}
+
+test_list_usage_all_tenants_with_non_admin_user
+	GET-/os-simple-tenant-usage
+	DELETE-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	GET-/servers/{server_id}
+	DELETE-/os-server-groups/{server_group_id}

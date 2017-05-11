@@ -1,0 +1,1314 @@
+##test_create_agent##
+POST	/v2.1/os-agents
+DELETE	/v2.1/os-agents/337
+DELETE	/v2.1/os-agents/338
+POST	/v2.1/os-agents
+##test_delete_agent##
+DELETE	/v2.1/os-agents/339
+GET	/v2.1/os-agents
+DELETE	/v2.1/os-agents/339
+POST	/v2.1/os-agents
+##test_list_agents##
+GET	/v2.1/os-agents
+DELETE	/v2.1/os-agents/340
+POST	/v2.1/os-agents
+##test_list_agents_with_filter##
+POST	/v2.1/os-agents
+GET	/v2.1/os-agents?hypervisor=xen
+DELETE	/v2.1/os-agents/341
+DELETE	/v2.1/os-agents/342
+POST	/v2.1/os-agents
+##test_update_agent##
+PUT	/v2.1/os-agents/343
+DELETE	/v2.1/os-agents/343
+DELETE	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+GET	/v2.1/servers/e842eb53-5d34-4bd7-a2a5-d6877f612800
+DELETE	/v2.1/os-server-groups/8f33bf24-b5e0-4e75-a81b-1ec54d2cf0a3
+GET	/v2.1/os-hosts
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_aggregate_add_host_create_server_with_az##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/294/action
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+POST	/v2.1/os-aggregates/294/action
+DELETE	/v2.1/os-aggregates/294
+##test_aggregate_add_host_get_details##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/295/action
+GET	/v2.1/os-aggregates/295
+POST	/v2.1/os-aggregates/295/action
+DELETE	/v2.1/os-aggregates/295
+##test_aggregate_add_host_list##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/296/action
+GET	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/296/action
+DELETE	/v2.1/os-aggregates/296
+##test_aggregate_add_remove_host##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/297/action
+POST	/v2.1/os-aggregates/297/action
+DELETE	/v2.1/os-aggregates/297
+##test_aggregate_create_delete##
+POST	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/298
+GET	/v2.1/os-aggregates/298
+DELETE	/v2.1/os-aggregates/298
+##test_aggregate_create_delete_with_az##
+POST	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/299
+GET	/v2.1/os-aggregates/299
+DELETE	/v2.1/os-aggregates/299
+##test_aggregate_create_update_metadata_get_details##
+POST	/v2.1/os-aggregates
+GET	/v2.1/os-aggregates/300
+POST	/v2.1/os-aggregates/300/action
+GET	/v2.1/os-aggregates/300
+DELETE	/v2.1/os-aggregates/300
+##test_aggregate_create_update_with_az##
+POST	/v2.1/os-aggregates
+PUT	/v2.1/os-aggregates/301
+GET	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/301
+##test_aggregate_create_verify_entry_in_list##
+POST	/v2.1/os-aggregates
+GET	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/302
+DELETE	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+DELETE	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/1b382985-8254-49ab-b9a1-0c86c6065e96
+GET	/v2.1/servers/adb0292c-d44e-43eb-89ab-467cc5ac750d
+DELETE	/v2.1/os-server-groups/eeaff56b-97eb-46ec-914f-61067e1d451c
+GET	/v2.1/os-hosts
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_aggregate_add_existent_host##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/303/action
+POST	/v2.1/os-aggregates/303/action
+POST	/v2.1/os-aggregates/303/action
+DELETE	/v2.1/os-aggregates/303
+##test_aggregate_add_host_as_user##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/304/action
+DELETE	/v2.1/os-aggregates/304
+##test_aggregate_add_non_exist_host##
+GET	/v2.1/os-hosts
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/305/action
+DELETE	/v2.1/os-aggregates/305
+##test_aggregate_create_aggregate_name_length_exceeds_255##
+POST	/v2.1/os-aggregates
+##test_aggregate_create_aggregate_name_length_less_than_1##
+POST	/v2.1/os-aggregates
+##test_aggregate_create_as_user##
+POST	/v2.1/os-aggregates
+##test_aggregate_create_with_existent_aggregate_name##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/306
+##test_aggregate_delete_as_user##
+POST	/v2.1/os-aggregates
+DELETE	/v2.1/os-aggregates/307
+DELETE	/v2.1/os-aggregates/307
+##test_aggregate_delete_with_invalid_id##
+DELETE	/v2.1/os-aggregates/-1
+##test_aggregate_get_details_as_user##
+POST	/v2.1/os-aggregates
+GET	/v2.1/os-aggregates/308
+DELETE	/v2.1/os-aggregates/308
+##test_aggregate_get_details_with_invalid_id##
+GET	/v2.1/os-aggregates/-1
+##test_aggregate_list_as_user##
+GET	/v2.1/os-aggregates
+##test_aggregate_remove_host_as_user##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/309/action
+POST	/v2.1/os-aggregates/309/action
+POST	/v2.1/os-aggregates/309/action
+DELETE	/v2.1/os-aggregates/309
+##test_aggregate_remove_nonexistent_host##
+POST	/v2.1/os-aggregates
+POST	/v2.1/os-aggregates/310/action
+DELETE	/v2.1/os-aggregates/310
+DELETE	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+GET	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+GET	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+GET	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+GET	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+GET	/v2.1/servers/7aeebed5-517f-4bf1-b6c4-e26ed2256998
+DELETE	/v2.1/os-server-groups/132de5dc-9b35-4335-a129-09a751cc86c9
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_availability_zone_list##
+GET	/v2.1/os-availability-zone
+##test_get_availability_zone_list_detail##
+GET	/v2.1/os-availability-zone/detail
+DELETE	/v2.1/servers/e29a0a7f-0ea0-4524-8413-23b8120d58e4
+GET	/v2.1/servers/e29a0a7f-0ea0-4524-8413-23b8120d58e4
+GET	/v2.1/servers/e29a0a7f-0ea0-4524-8413-23b8120d58e4
+GET	/v2.1/servers/e29a0a7f-0ea0-4524-8413-23b8120d58e4
+DELETE	/v2.1/os-server-groups/0ab8c901-e313-4dd4-8e30-7feaaf1f8580
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_availability_zone_list_detail_with_non_admin_user##
+GET	/v2.1/os-availability-zone/detail
+DELETE	/v2.1/servers/7e8ef29a-8f5c-44d8-8c5f-8d7fde475112
+GET	/v2.1/servers/7e8ef29a-8f5c-44d8-8c5f-8d7fde475112
+GET	/v2.1/servers/7e8ef29a-8f5c-44d8-8c5f-8d7fde475112
+DELETE	/v2.1/os-server-groups/d6a01231-6a7e-4b6e-8e6a-2f2d1dbe7801
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_list_fixed_ip_details##
+GET	/v2.1/os-fixed-ips/10.0.0.62
+##test_set_reserve##
+POST	/v2.1/os-fixed-ips/10.0.0.62/action
+##test_set_unreserve##
+POST	/v2.1/os-fixed-ips/10.0.0.62/action
+DELETE	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+DELETE	/v2.1/servers/1c9afcdb-7aa6-4419-8155-62326a8e9b14
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/7402da38-6dd6-4504-9132-f9cb74e5a369
+GET	/v2.1/servers/1c9afcdb-7aa6-4419-8155-62326a8e9b14
+GET	/v2.1/servers/1c9afcdb-7aa6-4419-8155-62326a8e9b14
+GET	/v2.1/servers/1c9afcdb-7aa6-4419-8155-62326a8e9b14
+GET	/v2.1/servers/1c9afcdb-7aa6-4419-8155-62326a8e9b14
+DELETE	/v2.1/os-server-groups/e6f48d9b-01ce-42f0-908b-e1cf6514f89a
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_fixed_ip_with_invalid_action##
+POST	/v2.1/os-fixed-ips/10.0.0.32/action
+##test_list_fixed_ip_details_with_non_admin_user##
+GET	/v2.1/os-fixed-ips/10.0.0.32
+##test_set_reserve_with_invalid_ip##
+POST	/v2.1/os-fixed-ips/my.invalid.ip/action
+##test_set_reserve_with_non_admin_user##
+POST	/v2.1/os-fixed-ips/10.0.0.32/action
+##test_set_unreserve_with_non_admin_user##
+POST	/v2.1/os-fixed-ips/10.0.0.32/action
+DELETE	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+DELETE	/v2.1/servers/d3bd9f83-fb77-4e51-8ef4-6b6a7a21b88c
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/7708bf10-9924-4119-b9fe-149d0a8f91b5
+GET	/v2.1/servers/d3bd9f83-fb77-4e51-8ef4-6b6a7a21b88c
+GET	/v2.1/servers/d3bd9f83-fb77-4e51-8ef4-6b6a7a21b88c
+GET	/v2.1/servers/d3bd9f83-fb77-4e51-8ef4-6b6a7a21b88c
+GET	/v2.1/servers/d3bd9f83-fb77-4e51-8ef4-6b6a7a21b88c
+DELETE	/v2.1/os-server-groups/e956e5a5-2d9e-4234-aaba-477ab625cfa8
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_create_flavor_using_string_ram##
+POST	/v2.1/flavors
+DELETE	/v2.1/flavors/104624671
+GET	/v2.1/flavors/detail
+##test_create_flavor_verify_entry_in_list_details##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/1460682974
+GET	/v2.1/flavors/detail
+##test_create_flavor_with_int_id##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/2115805623
+DELETE	/v2.1/flavors/2115805623
+GET	/v2.1/flavors/detail
+##test_create_flavor_with_none_id##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/16aaa044-7295-47e5-a7d3-18f2acc3fbdd
+DELETE	/v2.1/flavors/16aaa044-7295-47e5-a7d3-18f2acc3fbdd
+GET	/v2.1/flavors/detail
+##test_create_flavor_with_uuid_id##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/f156c73e-1509-4843-ac07-298e6f5c523a
+DELETE	/v2.1/flavors/f156c73e-1509-4843-ac07-298e6f5c523a
+GET	/v2.1/flavors/detail
+##test_create_list_flavor_without_extra_data##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/953650828
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/953650828
+GET	/v2.1/flavors/detail
+##test_create_server_with_non_public_flavor##
+POST	/v2.1/flavors
+POST	/v2.1/servers
+DELETE	/v2.1/flavors/750250088
+GET	/v2.1/flavors/detail
+##test_is_public_string_variations##
+POST	/v2.1/flavors
+POST	/v2.1/flavors
+GET	/v2.1/flavors/detail?is_public=f
+GET	/v2.1/flavors/detail?is_public=false
+GET	/v2.1/flavors/detail?is_public=no
+GET	/v2.1/flavors/detail?is_public=0
+GET	/v2.1/flavors/detail?is_public=t
+GET	/v2.1/flavors/detail?is_public=true
+GET	/v2.1/flavors/detail?is_public=yes
+GET	/v2.1/flavors/detail?is_public=1
+DELETE	/v2.1/flavors/113586602
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/485381225
+GET	/v2.1/flavors/detail
+##test_list_non_public_flavor##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/detail
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/353598426
+GET	/v2.1/flavors/detail
+##test_list_public_flavor_with_other_user##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/596091677
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/servers/0eca422a-20b4-4aa4-a589-be6c35316d30
+GET	/v2.1/servers/0eca422a-20b4-4aa4-a589-be6c35316d30
+GET	/v2.1/servers/0eca422a-20b4-4aa4-a589-be6c35316d30
+GET	/v2.1/servers/0eca422a-20b4-4aa4-a589-be6c35316d30
+DELETE	/v2.1/os-server-groups/c642bff8-1d7a-4161-a30f-6ee483ddc184
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_flavor_access_add_remove##
+POST	/v2.1/flavors
+POST	/v2.1/flavors/223138818/action
+GET	/v2.1/flavors/detail
+POST	/v2.1/flavors/223138818/action
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/flavors/223138818
+##test_flavor_access_list_with_private_flavor##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/1139014854/os-flavor-access
+DELETE	/v2.1/flavors/1139014854
+DELETE	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+GET	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+GET	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+GET	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+GET	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+GET	/v2.1/servers/6f8882ae-8e95-425e-a11b-ad788806ab17
+DELETE	/v2.1/os-server-groups/2bf4c737-d8a3-4bb0-9d02-e158a06d76c7
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_add_flavor_access_duplicate##
+POST	/v2.1/flavors
+POST	/v2.1/flavors/1889955999/action
+POST	/v2.1/flavors/1889955999/action
+POST	/v2.1/flavors/1889955999/action
+DELETE	/v2.1/flavors/1889955999
+##test_flavor_access_list_with_public_flavor##
+POST	/v2.1/flavors
+GET	/v2.1/flavors/995301225/os-flavor-access
+DELETE	/v2.1/flavors/995301225
+##test_flavor_non_admin_add##
+POST	/v2.1/flavors
+POST	/v2.1/flavors/255847100/action
+DELETE	/v2.1/flavors/255847100
+##test_flavor_non_admin_remove##
+POST	/v2.1/flavors
+POST	/v2.1/flavors/1848885827/action
+POST	/v2.1/flavors/1848885827/action
+POST	/v2.1/flavors/1848885827/action
+DELETE	/v2.1/flavors/1848885827
+##test_remove_flavor_access_not_found##
+POST	/v2.1/flavors
+POST	/v2.1/flavors/1993627867/action
+DELETE	/v2.1/flavors/1993627867
+DELETE	/v2.1/servers/76b30678-0094-4106-9228-665170b239af
+GET	/v2.1/servers/76b30678-0094-4106-9228-665170b239af
+GET	/v2.1/servers/76b30678-0094-4106-9228-665170b239af
+GET	/v2.1/servers/76b30678-0094-4106-9228-665170b239af
+GET	/v2.1/servers/76b30678-0094-4106-9228-665170b239af
+DELETE	/v2.1/os-server-groups/c5c9f8de-6840-46de-8cfe-cbf2e425e26c
+POST	/v2.1/flavors
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_flavor_non_admin_get_all_keys##
+POST	/v2.1/flavors/1164953506/os-extra_specs
+GET	/v2.1/flavors/1164953506/os-extra_specs
+##test_flavor_non_admin_get_specific_key##
+POST	/v2.1/flavors/1164953506/os-extra_specs
+GET	/v2.1/flavors/1164953506/os-extra_specs/key1
+##test_flavor_set_get_update_show_unset_keys##
+POST	/v2.1/flavors/1164953506/os-extra_specs
+GET	/v2.1/flavors/1164953506/os-extra_specs
+PUT	/v2.1/flavors/1164953506/os-extra_specs/key1
+GET	/v2.1/flavors/1164953506/os-extra_specs
+DELETE	/v2.1/flavors/1164953506/os-extra_specs/key1
+DELETE	/v2.1/flavors/1164953506/os-extra_specs/key2
+DELETE	/v2.1/flavors/1164953506
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+GET	/v2.1/servers/68ca384d-a231-46b9-9878-ee310d44f000
+DELETE	/v2.1/os-server-groups/b5255350-6f28-46b8-9a0c-677197f3337a
+POST	/v2.1/flavors
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_flavor_get_nonexistent_key##
+GET	/v2.1/flavors/1930085935/os-extra_specs/nonexistent_key
+##test_flavor_non_admin_set_keys##
+POST	/v2.1/flavors/1930085935/os-extra_specs
+##test_flavor_non_admin_unset_keys##
+POST	/v2.1/flavors/1930085935/os-extra_specs
+DELETE	/v2.1/flavors/1930085935/os-extra_specs/key1
+##test_flavor_non_admin_update_specific_key##
+POST	/v2.1/flavors/1930085935/os-extra_specs
+PUT	/v2.1/flavors/1930085935/os-extra_specs/key1
+##test_flavor_unset_nonexistent_key##
+DELETE	/v2.1/flavors/1930085935/os-extra_specs/tempest-flavor_key-451619728
+##test_flavor_update_mismatch_key##
+PUT	/v2.1/flavors/1930085935/os-extra_specs/key2
+##test_flavor_update_more_key##
+PUT	/v2.1/flavors/1930085935/os-extra_specs/key1
+DELETE	/v2.1/flavors/1930085935
+GET	/v2.1/flavors/detail
+DELETE	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+GET	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+GET	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+GET	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+GET	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+GET	/v2.1/servers/e7f509d5-0ead-4f66-bcc8-a976ae306412
+DELETE	/v2.1/os-server-groups/dcee3b6f-17e4-4768-96a0-5caa4ba20386
+GET	/v2.1/os-floating-ips-bulk
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_create_list_delete_floating_ips_bulk##
+POST	/v2.1/os-floating-ips-bulk
+GET	/v2.1/os-floating-ips-bulk
+PUT	/v2.1/os-floating-ips-bulk/delete
+PUT	/v2.1/os-floating-ips-bulk/delete
+DELETE	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+GET	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+GET	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+GET	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+GET	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+GET	/v2.1/servers/b1024a07-810f-48f7-8811-3a5e4553597b
+DELETE	/v2.1/os-server-groups/700bc880-9c81-48f8-9ee8-2e089026a45f
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_list_hosts##
+GET	/v2.1/os-hosts
+##test_list_hosts_with_a_blank_zone##
+GET	/v2.1/os-hosts?zone=
+##test_list_hosts_with_nonexistent_zone##
+GET	/v2.1/os-hosts?zone=xxx
+##test_list_hosts_with_zone##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts?zone=internal
+##test_show_host_detail##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts/pyt
+DELETE	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+GET	/v2.1/servers/83022fcc-d02a-4153-9cfc-430a56802e18
+DELETE	/v2.1/os-server-groups/08a57022-0cf9-4f14-b460-98f70f982e2f
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_list_hosts_with_non_admin_user##
+GET	/v2.1/os-hosts
+##test_reboot_host_with_non_admin_user##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts/pyt/reboot
+##test_reboot_nonexistent_host##
+GET	/v2.1/os-hosts/tempest-rand_hostname-1479038726/reboot
+##test_show_host_detail_with_non_admin_user##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts/pyt
+##test_show_host_detail_with_nonexistent_hostname##
+GET	/v2.1/os-hosts/tempest-rand_hostname-2137187111
+##test_shutdown_host_with_non_admin_user##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts/pyt/shutdown
+##test_shutdown_nonexistent_host##
+GET	/v2.1/os-hosts/tempest-rand_hostname-2113487089/shutdown
+##test_startup_host_with_non_admin_user##
+GET	/v2.1/os-hosts
+GET	/v2.1/os-hosts/pyt/startup
+##test_startup_nonexistent_host##
+GET	/v2.1/os-hosts/tempest-rand_hostname-1964203329/startup
+##test_update_host_with_invalid_maintenance_mode##
+GET	/v2.1/os-hosts
+PUT	/v2.1/os-hosts/pyt
+##test_update_host_with_invalid_status##
+GET	/v2.1/os-hosts
+PUT	/v2.1/os-hosts/pyt
+##test_update_host_with_non_admin_user##
+GET	/v2.1/os-hosts
+PUT	/v2.1/os-hosts/pyt
+##test_update_host_without_param##
+GET	/v2.1/os-hosts
+PUT	/v2.1/os-hosts/pyt
+##test_update_nonexistent_host##
+PUT	/v2.1/os-hosts/tempest-rand_hostname-1727149841
+DELETE	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+GET	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+GET	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+GET	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+GET	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+GET	/v2.1/servers/4a3f941e-cf70-4ab1-8a65-99f95e73fe32
+DELETE	/v2.1/os-server-groups/bd71d217-a977-4034-a741-bb777bf08749
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_hypervisor_list##
+GET	/v2.1/os-hypervisors
+##test_get_hypervisor_list_details##
+GET	/v2.1/os-hypervisors/detail
+##test_get_hypervisor_show_details##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/1
+##test_get_hypervisor_show_servers##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/pyt/servers
+##test_get_hypervisor_stats##
+GET	/v2.1/os-hypervisors/statistics
+##test_get_hypervisor_uptime##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/1
+GET	/v2.1/os-hypervisors/1/uptime
+##test_search_hypervisor##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/pyt/search
+DELETE	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+GET	/v2.1/servers/1f6b77ca-e4b1-4500-9937-3ba71e5cc8e4
+DELETE	/v2.1/os-server-groups/ad779800-7d0b-430b-8c59-9b24aaa2a69e
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_hypervisor_list_details_with_non_admin_user##
+GET	/v2.1/os-hypervisors/detail
+##test_get_hypervisor_list_with_non_admin_user##
+GET	/v2.1/os-hypervisors
+##test_get_hypervisor_stats_with_non_admin_user##
+GET	/v2.1/os-hypervisors/statistics
+##test_get_hypervisor_uptime_with_non_admin_user##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/1/uptime
+##test_get_nonexistent_hypervisor_uptime##
+GET	/v2.1/os-hypervisors/0c1c68b1-cef4-484d-a80f-1b3dcf60f6aa/uptime
+##test_search_hypervisor_with_non_admin_user##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/pyt/search
+##test_search_nonexistent_hypervisor##
+GET	/v2.1/os-hypervisors/tempest-test_hypervisor-1102957709/search
+##test_show_hypervisor_with_non_admin_user##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/1
+##test_show_nonexistent_hypervisor##
+GET	/v2.1/os-hypervisors/2a898f22-389c-4031-b1cd-6fe9da917905
+##test_show_servers_with_non_admin_user##
+GET	/v2.1/os-hypervisors
+GET	/v2.1/os-hypervisors/1/servers
+##test_show_servers_with_nonexistent_hypervisor##
+GET	/v2.1/os-hypervisors/90969931-4a7b-440a-badb-8ff8651d21ff/servers
+DELETE	/v2.1/servers/a95bd725-b388-4ecb-bef2-094b473075f7
+GET	/v2.1/servers/a95bd725-b388-4ecb-bef2-094b473075f7
+GET	/v2.1/servers/a95bd725-b388-4ecb-bef2-094b473075f7
+GET	/v2.1/servers/a95bd725-b388-4ecb-bef2-094b473075f7
+GET	/v2.1/servers/a95bd725-b388-4ecb-bef2-094b473075f7
+DELETE	/v2.1/os-server-groups/5fa4282d-2ab2-4daf-ad6c-d324c6d2badd
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_instance_usage_audit_log##
+GET	/v2.1/os-instance_usage_audit_log/2016-10-12%2015:21:29
+##test_list_instance_usage_audit_logs##
+GET	/v2.1/os-instance_usage_audit_log
+DELETE	/v2.1/servers/15ef66b3-c3f5-45f1-9834-075894e4dc0c
+GET	/v2.1/servers/15ef66b3-c3f5-45f1-9834-075894e4dc0c
+GET	/v2.1/servers/15ef66b3-c3f5-45f1-9834-075894e4dc0c
+DELETE	/v2.1/os-server-groups/ab748056-c5ca-4770-a04b-a729425abe58
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_instance_usage_audit_logs_with_invalid_time##
+GET	/v2.1/os-instance_usage_audit_log/invalid_time
+##test_instance_usage_audit_logs_with_nonadmin_user##
+GET	/v2.1/os-instance_usage_audit_log
+GET	/v2.1/os-instance_usage_audit_log/2016-10-12%2015:21:34
+DELETE	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+GET	/v2.1/servers/db9b5a42-2fb0-4395-b87a-0962cf774a88
+DELETE	/v2.1/os-server-groups/98718954-98e5-48bd-9b9b-c4f6ff96ad0e
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_admin_manage_keypairs_for_other_users##
+POST	/v2.1/os-keypairs
+POST	/v2.1/os-keypairs
+GET	/v2.1/os-keypairs/tempest-keypair-777029161?user_id=eb20f039132f4073960a2526959ed9ac
+POST	/v2.1/os-keypairs
+GET	/v2.1/os-keypairs?user_id=eb20f039132f4073960a2526959ed9ac
+DELETE	/v2.1/os-keypairs/tempest-keypair-1845688474
+DELETE	/v2.1/os-keypairs/tempest-keypair-1967251099?user_id=eb20f039132f4073960a2526959ed9ac
+DELETE	/v2.1/os-keypairs/tempest-keypair-777029161?user_id=eb20f039132f4073960a2526959ed9ac
+DELETE	/v2.1/servers/f3ae5b58-c33a-4625-bf8c-53a93ef31e29
+GET	/v2.1/servers/f3ae5b58-c33a-4625-bf8c-53a93ef31e29
+GET	/v2.1/servers/f3ae5b58-c33a-4625-bf8c-53a93ef31e29
+GET	/v2.1/servers/f3ae5b58-c33a-4625-bf8c-53a93ef31e29
+GET	/v2.1/servers/f3ae5b58-c33a-4625-bf8c-53a93ef31e29
+DELETE	/v2.1/os-server-groups/75948183-fed5-4ce3-90e6-457fbb3cf742
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_list_migrations##
+GET	/v2.1/os-migrations
+##test_list_migrations_in_flavor_resize_situation##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+POST	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867/action
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+POST	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867/action
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/os-migrations
+##test_resize_server_revert_deleted_flavor##
+GET	/v2.1/flavors/42
+POST	/v2.1/flavors
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+DELETE	/v2.1/flavors/12aaa5d4-d26c-4baf-820e-c420670df7d5
+GET	/v2.1/flavors/detail
+POST	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b/action
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+POST	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b/action
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+DELETE	/v2.1/flavors/12aaa5d4-d26c-4baf-820e-c420670df7d5
+DELETE	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+DELETE	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+DELETE	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/972aeb1e-3273-49a8-87cf-eec709b5b1a6
+GET	/v2.1/servers/5c2aa96a-c469-4f79-b93d-682e4c20c867
+GET	/v2.1/servers/8f910796-bec6-4b5c-b945-90afdbf5298b
+DELETE	/v2.1/os-server-groups/896c331c-40d8-4fd4-950e-6fca3f02c010
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_network##
+GET	/v2.1/os-networks
+GET	/v2.1/os-networks/5bb6fb1b-e63c-4543-93f1-471430ca125d
+##test_list_all_networks##
+GET	/v2.1/os-networks
+DELETE	/v2.1/servers/12f1aca6-d394-468a-bf37-3902aff2e26c
+GET	/v2.1/servers/12f1aca6-d394-468a-bf37-3902aff2e26c
+GET	/v2.1/servers/12f1aca6-d394-468a-bf37-3902aff2e26c
+GET	/v2.1/servers/12f1aca6-d394-468a-bf37-3902aff2e26c
+DELETE	/v2.1/os-server-groups/c82647bc-40cb-434d-b3a7-1db2b67828ce
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_update_default_quotas##
+GET	/v2.1/os-quota-class-sets/default
+PUT	/v2.1/os-quota-class-sets/default
+PUT	/v2.1/os-quota-class-sets/default
+DELETE	/v2.1/servers/e9d8b569-ff37-4e65-9a3f-1e0899c012d7
+GET	/v2.1/servers/e9d8b569-ff37-4e65-9a3f-1e0899c012d7
+GET	/v2.1/servers/e9d8b569-ff37-4e65-9a3f-1e0899c012d7
+GET	/v2.1/servers/e9d8b569-ff37-4e65-9a3f-1e0899c012d7
+GET	/v2.1/servers/e9d8b569-ff37-4e65-9a3f-1e0899c012d7
+DELETE	/v2.1/os-server-groups/cdc836fc-f57b-4f3c-b729-d2c3ea79425e
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_delete_quota##
+GET	/v2.1/os-quota-sets/acbab5a2c4dd4864a85811be049364cf
+PUT	/v2.1/os-quota-sets/acbab5a2c4dd4864a85811be049364cf
+DELETE	/v2.1/os-quota-sets/acbab5a2c4dd4864a85811be049364cf
+GET	/v2.1/os-quota-sets/acbab5a2c4dd4864a85811be049364cf
+##test_get_default_quotas##
+GET	/v2.1/os-quota-sets/c655d7f35a414703a26bee47a6a6d42c/defaults
+##test_get_updated_quotas##
+PUT	/v2.1/os-quota-sets/59d10ff3579040e0816382497ddbf249
+GET	/v2.1/os-quota-sets/59d10ff3579040e0816382497ddbf249
+PUT	/v2.1/os-quota-sets/59d10ff3579040e0816382497ddbf249?user_id=065e7a685b3c449f9e4309a0522cdd98
+GET	/v2.1/os-quota-sets/59d10ff3579040e0816382497ddbf249?user_id=065e7a685b3c449f9e4309a0522cdd98
+##test_update_all_quota_resources_for_tenant##
+GET	/v2.1/os-quota-sets/c655d7f35a414703a26bee47a6a6d42c/defaults
+PUT	/v2.1/os-quota-sets/c655d7f35a414703a26bee47a6a6d42c
+PUT	/v2.1/os-quota-sets/c655d7f35a414703a26bee47a6a6d42c
+DELETE	/v2.1/servers/1a2d7511-a984-4375-a9d2-1564e9f6e095
+GET	/v2.1/servers/1a2d7511-a984-4375-a9d2-1564e9f6e095
+GET	/v2.1/servers/1a2d7511-a984-4375-a9d2-1564e9f6e095
+GET	/v2.1/servers/1a2d7511-a984-4375-a9d2-1564e9f6e095
+GET	/v2.1/servers/1a2d7511-a984-4375-a9d2-1564e9f6e095
+DELETE	/v2.1/os-server-groups/d3e62016-bf94-4d59-9359-990e81cec55b
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_create_server_when_cpu_quota_is_full##
+GET	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+##test_create_server_when_instances_quota_is_full##
+GET	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+##test_create_server_when_memory_quota_is_full##
+GET	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+##test_security_groups_exceed_limit##
+GET	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+GET	/v2.1/limits
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+POST	/v2.1/os-security-groups
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+##test_security_groups_rules_exceed_limit##
+GET	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+POST	/v2.1/os-security-groups
+POST	/v2.1/os-security-group-rules
+DELETE	/v2.1/os-security-groups/1041
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+##test_update_quota_normal_user##
+PUT	/v2.1/os-quota-sets/936b4b86bc4444f89289f558f2989ec9
+DELETE	/v2.1/servers/6f96a192-9798-4176-a24d-5314bfee7678
+GET	/v2.1/servers/6f96a192-9798-4176-a24d-5314bfee7678
+GET	/v2.1/servers/6f96a192-9798-4176-a24d-5314bfee7678
+GET	/v2.1/servers/6f96a192-9798-4176-a24d-5314bfee7678
+GET	/v2.1/servers/6f96a192-9798-4176-a24d-5314bfee7678
+DELETE	/v2.1/os-server-groups/107ff4a4-8e43-4eaf-9644-fec04b96245f
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_create_delete_security_group_default_rules##
+POST	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/71
+GET	/v2.1/os-security-group-default-rules/71
+POST	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/72
+GET	/v2.1/os-security-group-default-rules/72
+POST	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/73
+GET	/v2.1/os-security-group-default-rules/73
+##test_create_security_group_default_rule_with_blank_cidr##
+POST	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/74
+##test_create_security_group_default_rule_without_cidr##
+POST	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/75
+##test_default_security_group_default_rule_show##
+POST	/v2.1/os-security-group-default-rules
+GET	/v2.1/os-security-group-default-rules/76
+DELETE	/v2.1/os-security-group-default-rules/76
+##test_security_group_default_rules_list##
+POST	/v2.1/os-security-group-default-rules
+GET	/v2.1/os-security-group-default-rules
+DELETE	/v2.1/os-security-group-default-rules/77
+DELETE	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+GET	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+GET	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+GET	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+GET	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+GET	/v2.1/servers/fe723cc6-f54b-4769-b1b4-7227db78087a
+DELETE	/v2.1/os-server-groups/5dc3d694-3836-4a87-a12c-862ead68f369
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_list_security_groups_list_all_tenants_filter##
+POST	/v2.1/os-security-groups
+POST	/v2.1/os-security-groups
+POST	/v2.1/os-security-groups
+POST	/v2.1/os-security-groups
+GET	/v2.1/os-security-groups?all_tenants=true
+GET	/v2.1/os-security-groups?all_tenants=true
+DELETE	/v2.1/os-security-groups/1048
+DELETE	/v2.1/os-security-groups/1047
+DELETE	/v2.1/os-security-groups/1045
+DELETE	/v2.1/os-security-groups/1044
+DELETE	/v2.1/servers/2ee4b9bb-183b-4365-86fd-5faf79837155
+GET	/v2.1/servers/2ee4b9bb-183b-4365-86fd-5faf79837155
+GET	/v2.1/servers/2ee4b9bb-183b-4365-86fd-5faf79837155
+GET	/v2.1/servers/2ee4b9bb-183b-4365-86fd-5faf79837155
+GET	/v2.1/servers/2ee4b9bb-183b-4365-86fd-5faf79837155
+DELETE	/v2.1/os-server-groups/6c4c293d-8ab7-4581-9859-24fcb2e6aa9f
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_create_server_with_scheduling_hint##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+##test_get_server_diagnostics_by_admin##
+##test_list_servers_by_admin##
+GET	/v2.1/servers/detail
+##test_list_servers_by_admin_with_all_tenants##
+GET	/v2.1/servers/detail?all_tenants=
+##test_list_servers_by_admin_with_specified_tenant##
+GET	/v2.1/servers/detail?tenant_id=c908fd58eeec4620a503e774f58f7363
+GET	/v2.1/servers/detail?tenant_id=98ec0abb61774df6a13f42efbc9526d7&all_tenants=
+##test_list_servers_filter_by_error_status##
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+GET	/v2.1/servers?status=error
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+##test_list_servers_filter_by_exist_host##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+GET	/v2.1/servers?host=pyt
+GET	/v2.1/servers?host=nonexistent_host
+DELETE	/v2.1/servers/e6b6c857-5b2d-495d-95af-6ee04e51851d
+##test_rebuild_server_in_error_state##
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+##test_reset_network_inject_network_info##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+POST	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e/action
+POST	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e/action
+##test_reset_state_server##
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+POST	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042/action
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+DELETE	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+DELETE	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+DELETE	/v2.1/servers/991fced0-57c1-43d4-b65c-2b766c7cd86f
+DELETE	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+DELETE	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/f8b3cd97-3b7b-4751-a6e9-19aaedee0042
+GET	/v2.1/servers/59db5e40-5d5a-47fe-a9d5-fd5e137fa4df
+GET	/v2.1/servers/991fced0-57c1-43d4-b65c-2b766c7cd86f
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/db7e5e51-809b-4269-8e54-2d4fab6c8262
+GET	/v2.1/servers/f8cccc7f-ce5a-4edd-bb6a-ced32d381d9e
+DELETE	/v2.1/os-server-groups/46cb5c92-2dbb-445e-bc70-13bfe5d2db2d
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_server_diagnostics_by_non_admin##
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd/diagnostics
+##test_migrate_non_existent_server##
+POST	/v2.1/servers/0435acfe-e006-4d6a-8eb6-5f971f37a1e9/action
+##test_migrate_server_invalid_state##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+POST	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc/action
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+POST	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc/action
+##test_reset_state_server_invalid_state##
+POST	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd/action
+##test_reset_state_server_invalid_type##
+POST	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd/action
+##test_reset_state_server_nonexistent_server##
+POST	/v2.1/servers/999/action
+##test_resize_server_using_overlimit_ram##
+GET	/v2.1/flavors/261036989
+GET	/v2.1/os-quota-sets/79e54ca586c24aeb97a70c1db58fef84/defaults
+POST	/v2.1/flavors
+POST	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd/action
+DELETE	/v2.1/flavors/261036989
+##test_resize_server_using_overlimit_vcpus##
+GET	/v2.1/flavors/977081217
+GET	/v2.1/os-quota-sets/79e54ca586c24aeb97a70c1db58fef84/defaults
+POST	/v2.1/flavors
+POST	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd/action
+DELETE	/v2.1/flavors/977081217
+DELETE	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+DELETE	/v2.1/servers/4de304ca-0d38-4f8d-b16e-d2e2efee33e2
+DELETE	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/f9e221d7-fece-4b05-9bd3-681e72802cbd
+GET	/v2.1/servers/4de304ca-0d38-4f8d-b16e-d2e2efee33e2
+GET	/v2.1/servers/4de304ca-0d38-4f8d-b16e-d2e2efee33e2
+GET	/v2.1/servers/d944694b-5cd0-473f-b552-97607a2854fc
+DELETE	/v2.1/os-server-groups/6700ef15-7bdc-4692-91bf-e3a742725503
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_service_by_host_name##
+GET	/v2.1/os-services
+GET	/v2.1/os-services?host=pyt
+##test_get_service_by_service_and_host_name##
+GET	/v2.1/os-services
+GET	/v2.1/os-services?binary=nova-conductor&host=pyt
+##test_get_service_by_service_binary_name##
+GET	/v2.1/os-services?binary=nova-compute
+##test_list_services##
+GET	/v2.1/os-services
+DELETE	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+GET	/v2.1/servers/0bd19ba0-33b0-4124-83b8-da1e48712e75
+DELETE	/v2.1/os-server-groups/9a14e1f9-4583-437d-a086-8ab2ae4d5c3c
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_service_by_invalid_params##
+GET	/v2.1/os-services
+GET	/v2.1/os-services?xxx=nova-compute
+##test_get_service_by_invalid_service_and_valid_host##
+GET	/v2.1/os-services
+GET	/v2.1/os-services?binary=xxx&host=pyt
+##test_get_service_with_valid_service_and_invalid_host##
+GET	/v2.1/os-services
+GET	/v2.1/os-services?binary=nova-conductor&host=xxx
+##test_list_services_with_non_admin_user##
+GET	/v2.1/os-services
+DELETE	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+GET	/v2.1/servers/faa56374-b51a-4dfb-9181-8dc7f3d4042a
+DELETE	/v2.1/os-server-groups/4a152fca-339b-4042-93ec-502d230166bf
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_usage_tenant##
+GET	/v2.1/os-simple-tenant-usage/abbf2312bc3e444b8dc649e1333204a6?start=2016-10-11T15%3A30%3A30.496978&end=2016-10-13T15%3A30%3A30.496978
+##test_get_usage_tenant_with_non_admin_user##
+GET	/v2.1/os-simple-tenant-usage/abbf2312bc3e444b8dc649e1333204a6?start=2016-10-11T15%3A30%3A30.496978&end=2016-10-13T15%3A30%3A30.496978
+##test_list_usage_all_tenants##
+GET	/v2.1/os-simple-tenant-usage?detailed=1&start=2016-10-11T15%3A30%3A30.496978&end=2016-10-13T15%3A30%3A30.496978
+DELETE	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+DELETE	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/2ee09593-741e-4ec4-bbb8-c2ff84599c7e
+GET	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+GET	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+GET	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+GET	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+GET	/v2.1/servers/4a6e61f2-ff42-4373-8248-2402b5f3a98c
+DELETE	/v2.1/os-server-groups/3ac15241-c4f2-46b5-8a91-958d5239e7bb
+##create_test_server##
+GET	/v2.1/os-networks
+POST	/v2.1/servers
+HEAD	/v1/images/fa4b013a-ddbc-4b86-96de-e7ff2956e058
+##create_test_server_group##
+POST	/v2.1/os-server-groups
+##test_get_usage_tenant_with_empty_tenant_id##
+GET	/v2.1/os-simple-tenant-usage/?start=2016-10-11T15%3A30%3A44.904826&end=2016-10-13T15%3A30%3A44.904826
+##test_get_usage_tenant_with_invalid_date##
+GET	/v2.1/os-simple-tenant-usage/299373c023af4814b7b995e71f81fe37?start=2016-10-13T15%3A30%3A44.904826&end=2016-10-11T15%3A30%3A44.904826
+##test_list_usage_all_tenants_with_non_admin_user##
+GET	/v2.1/os-simple-tenant-usage?detailed=1&start=2016-10-11T15%3A30%3A44.904826&end=2016-10-13T15%3A30%3A44.904826
+DELETE	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+GET	/v2.1/servers/cef1104c-7835-4488-b336-0123a4177129
+DELETE	/v2.1/os-server-groups/0ed2a461-5f2e-466b-951f-aadfd0c20e1e

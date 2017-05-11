@@ -7,10 +7,10 @@ def deco(func):
  
 @deco
 def myfunc():
-    print(" myfunc() called.")
+    print("myfunc() called.")
     return 'ok'
  
 a = myfunc()
 
-print a
+print(a)
 #myfunc()

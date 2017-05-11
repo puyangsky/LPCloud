@@ -26,7 +26,7 @@ def addHook(filePathList):
 	if filePathList == None:
 		return
 	for path in filePathList:
-		print path
+		print(path)
 		with open(path, "a+") as f:
 			f.write(string + path + string1)
 

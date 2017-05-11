@@ -56,31 +56,25 @@
         var email = $("#inputEmail").val();
         var pwd = $("#inputPassword").val();
         var user = {"email": email, "password": pwd};
-//        console.log(user);
         $.ajax({
             url:"api/login",
             type:"POST",
             contentType: 'application/json',
-            async:false,
+            async:true,
             timeout:1000,
             data: JSON.stringify(user),
             success:function(result){
                 if (result == "success") {
-//                    alert("登录成功");
                     $("#loginSuccess").html("登录成功").show().delay(2000).hide(0);
                     setTimeout(function () {
                         window.location.href = "/index";
-                    }, 1000);
+                    }, 2000);
                 }else {
                     $("#loginSuccess").html("登录失败").show().delay(2000).hide(0);
                     setTimeout(function () {
                         window.location.href = "/login";
-                    }, 1000);
+                    }, 2000);
                 }
-            },
-            error:function (xhr,status) {
-                alert("error: " + status);
-                window.location.href = "/login";
             }
         });
     });

@@ -3,7 +3,7 @@ package com.springboot.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
 import com.springboot.model.User;
-import com.springboot.service.UpdateService;
+import com.springboot.service.DependencyCalculateService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,7 @@ import java.io.IOException;
 @RequestMapping("/api")
 public class ApiController {
     @Resource
-    private UpdateService updateService;
+    private DependencyCalculateService dependencyCalculateService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -52,8 +52,10 @@ public class ApiController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    String test(@RequestBody Model model) {
-        updateService.update(model);
+    String update(HttpServletRequest request, @RequestBody Model model) {
+        String path = request.getServletContext().getContextPath();
+        System.out.println(path);
+        dependencyCalculateService.update(model);
         return model == null ? "" : model.toString();
     }
 

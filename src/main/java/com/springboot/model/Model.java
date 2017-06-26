@@ -6,7 +6,6 @@ package com.springboot.model;
  */
 public class Model {
     private int count;
-    private double threshold;
 
     public int getCount() {
         return count;
@@ -16,19 +15,17 @@ public class Model {
         this.count = count;
     }
 
-    public double getThreshold() {
-        return threshold;
+    public Model(int count) {
+        this.count = count;
     }
 
-    public void setThreshold(double threshold) {
-        this.threshold = threshold;
+    public Model() {
     }
 
     @Override
     public String toString() {
         return "Model{" +
                 "count=" + count +
-                ", threshold=" + threshold +
                 '}';
     }
 }

@@ -52,9 +52,9 @@ public class ApiController {
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    String update(HttpServletRequest request, @RequestBody Model model) {
-        String path = request.getServletContext().getContextPath();
-        System.out.println(path);
+    String update(@RequestBody Model model) {
+//        String path = request.getServletContext().getContextPath();
+//        System.out.println(path);
         dependencyCalculateService.update(model);
         return model == null ? "" : model.toString();
     }
@@ -82,5 +82,11 @@ public class ApiController {
         }else {
             return "fail";
         }
+    }
+
+    @RequestMapping(value = "/append", method = RequestMethod.POST)
+    @ResponseBody
+    String addApi(HttpServletRequest request) {
+        return "";
     }
 }

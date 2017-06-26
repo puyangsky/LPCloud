@@ -96,14 +96,14 @@
                 <div class="modal-body">
 
                     <form class="form form-body">
-                        <div class="row form-row">
-                            <div class="col-xs-4 mylabel">
-                                依赖阈值：
-                            </div>
-                            <div class="col-xs-6">
-                                <input type="text" id="threshold" class="form-control" placeholder="范围为0到1的小数" required autofocus>
-                            </div>
-                        </div>
+                        <!--<div class="row form-row">-->
+                            <!--<div class="col-xs-4 mylabel">-->
+                                <!--依赖阈值：-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-6">-->
+                                <!--<input type="text" id="threshold" class="form-control" placeholder="范围为0到1的小数" required autofocus>-->
+                            <!--</div>-->
+                        <!--</div>-->
                         <div class="row form-row">
                             <div class="col-xs-4 mylabel">
                                 管理员数量：
@@ -136,9 +136,9 @@
 <script src="../js/bootstrap-table-export.js"></script>
 <script>
     $("#update").click(function () {
-        var threshold = $("#threshold").val();
+//        var threshold = $("#threshold").val();
         var count = $("#adminCount").val();
-        var data = {"threshold": threshold, "count": count};
+        var data = {"count": count};
         $.ajax({
             url:"api/update",
             type:"POST",

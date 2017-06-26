@@ -19,7 +19,7 @@ public class RedisUtil {
     private RedisTemplate<String, ?> redisTemplate;
 
     public boolean set(final String key, final String value) {
-        boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
+        return redisTemplate.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
                 RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
@@ -27,11 +27,10 @@ public class RedisUtil {
                 return true;
             }
         });
-        return result;
     }
 
     public String get(final String key){
-        String result = redisTemplate.execute(new RedisCallback<String>() {
+        return redisTemplate.execute(new RedisCallback<String>() {
             @Override
             public String doInRedis(RedisConnection connection) throws DataAccessException {
                 RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
@@ -39,6 +38,5 @@ public class RedisUtil {
                 return serializer.deserialize(value);
             }
         });
-        return result;
     }
 }

@@ -6,10 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * Author: puyangsky
@@ -18,39 +16,30 @@ import java.util.Set;
 @Component
 public class DependencyCalculateService {
 
+    private Logger logger = Logger.getLogger(DependencyCalculateService.class.getName());
     private String []services = {"nova", "glance", "keystone", "cinder"};
     private final int open = 0;
+    private Map<String, API> APIMap = new HashMap<String, API>();
+    private Set<String> APISet = new HashSet<String>();
+    private Map<String, Double> scoreMap = new HashMap<String, Double>();
+    private double threshold = 1.0;
+    private double resourceWeight = 1/3.0; /* 资源占比重 */
+    private double testCaseWeight = 1/3.0; /* 测试用例占比重 */
+    private double serviceWeight = 1/3.0;  /* 服务占比重 */
+    private List<List<String>> partitionResult = new ArrayList<List<String>>();
 
+    // TODO 实施结果，修改OpenStack中的policy.json
     public void update(Model model) {
         int count = model.getCount();
-        double thres = model.getThreshold();
-        //TODO 计算结果
-        System.out.println(model.toString());
-        // TODO 实施结果，修改OpenStack中的policy.json
 
         try {
-            read();
+            resolve(count);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-    }
 
-    public void read() throws IOException {
-
-//        String path = this.getClass().getResource("/").getPath() + "static/sourceFile/cinder.log";
-//        System.out.println(path);
-
-//        File f3 = new File(this.getClass().getResource("").getPath());
-//        System.out.println(f3);
-
-        File f4 = ResourceUtils.getFile("classpath:static/sourceFile/cinder.log");
-        System.out.println(f4.getPath());
-
-        RandomAccessFile file = new RandomAccessFile(f4, "r");
-        String s;
-        while ((s = file.readLine()) != null) {
-            System.out.println(s);
-        }
     }
 
     /**
@@ -59,13 +48,15 @@ public class DependencyCalculateService {
      */
     public void getUniqueAPI() throws IOException {
         String testCase = "";
-        Map<String, API> APIMap = new HashMap<String, API>();
-        Set<String> APISet = new HashSet<String>();
+
+        int line = 0;
         for (String service : services) {
             File file0 = ResourceUtils.getFile("classpath:static/sourceFile/" + service + ".log");
             RandomAccessFile file = new RandomAccessFile(file0, "r");
             String s;
             while ((s = file.readLine()) != null) {
+
+                line++;
 
                 if (!s.startsWith("##") && !s.startsWith(" ")) {
                     if (!s.contains("%UUID%") && s.contains("UUID")) {
@@ -76,7 +67,7 @@ public class DependencyCalculateService {
                         continue;
                     API api = new API(service, s, resource, testCase);
                     APIMap.put(api.getBody(), api);
-                    APISet.add(api.toString());
+                    APISet.add(api.getBody());
                 }else if (s.startsWith("##") && s.endsWith("##")) {
                     testCase = s.replaceAll("##", "");
                 }
@@ -84,14 +75,22 @@ public class DependencyCalculateService {
             file.close();
         }
 
+        System.out.println("行数：" + line);
+
         switch (open) {
             case 0:
                 System.out.println("Unique API Map size: " + APIMap.size());
                 System.out.println("Unique API Set size: " + APISet.size());
+                for (String k : APISet) {
+                    System.out.println(k);
+                }
+                break;
             case 1:
-//                print(APIMap);
+                print(APIMap);
+                break;
             case 2:
                 dump(APIMap);
+                break;
         }
     }
 
@@ -146,10 +145,107 @@ public class DependencyCalculateService {
         }
     }
 
-    // 根据是否在同一服务内计算
-    private double calculate() {
+    /**
+     * 处理数据
+     * @param count 预期的管理员数量
+     * @throws IOException
+     */
+    private void resolve(int count) throws IOException, InterruptedException {
+        if (APISet.size() == 0) {
+            this.getUniqueAPI();
+        }
+        fillMap();
+        splitMap();
+        int c = dumpResult();
+        while (c != count) {
+            if (c > count) {
+                threshold += 0.1;
+            } else if (c < count) {
+                threshold -= 0.1;
+            }
+            logger.warning("Get " + c + " Administrators! Retrying...Threshold is now: " + threshold);
+            Thread.sleep(5000);
+            splitMap();
+            c = dumpResult();
+        }
+    }
 
-        return 0.0;
+    /**
+     * 填充scoreMap
+     */
+    private void fillMap() {
+        for (String body : APISet) {
+            API api = APIMap.get(body);
+            for (String body1 : APISet) {
+                if (body.equals(body1)) continue;
+                API api1 = APIMap.get(body1);
+                String key = api.getBody() + "|" + api1.getBody();
+                String key1 = api1.getBody() + "|" + api.getBody();
+                if (scoreMap.containsKey(key1)) continue;
+                Double weight = 0.0;
+                weight += resourceWeight * (api.getResource().equals(api1.getResource()) ? 1 : 0);
+                weight += serviceWeight * (api.getService().equals(api1.getService()) ? 1 : 0);
+                weight += testCaseWeight * (api.getTestCase().equals(api1.getTestCase()) ? 1 : 0);
+                scoreMap.put(key, weight);
+            }
+        }
+        logger.info("Map has been filled!");
+    }
+
+    /**
+     * 划分scoreMap，填充partitionResult
+     */
+    private void splitMap() {
+        if (scoreMap.size() == 0) return;
+        for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
+            String apis = entry.getKey();
+            if (entry.getValue() > threshold) {
+                String[] api0 = apis.split("\\|");
+                String api1 = api0[0];
+                String api2 = api0[1];
+                List<String> list1 = null, list2 = null;
+                for (List<String> strings : partitionResult) {
+                    if (strings.contains(api1)) {
+                        list1 = strings;
+                    }
+
+                    if (strings.contains(api2)) {
+                        list2 = strings;
+                    }
+                }
+
+                if (list1 == null && list2 == null) {
+                    list1 = new ArrayList<String>();
+                    list1.add(api1);
+                    list1.add(api2);
+                    partitionResult.add(list1);
+                }else if (list1 != null && list2 != null && list1 != list2) {
+                    list1.addAll(list2);
+                    partitionResult.remove(list2);
+                }else if (list1 != null && list2 == null) {
+                    list1.add(api2);
+                }else if (list1 == null) {
+                    list2.add(api1);
+                }
+            }
+        }
+        logger.info("Split done");
+    }
+
+    /**
+     * 输出结果到json中
+     */
+    private int dumpResult() {
+
+        for (List<String> list : partitionResult) {
+            for (String api : list) {
+                System.out.println(api);
+            }
+            System.out.println("----------------");
+            System.out.println("----------------");
+        }
+
+        return partitionResult.size();
     }
 
 }

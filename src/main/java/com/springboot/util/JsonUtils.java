@@ -3,8 +3,7 @@ package com.springboot.util;
 import com.alibaba.fastjson.JSON;
 import com.springboot.model.Policy;
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -25,14 +24,12 @@ public class JsonUtils {
         RandomAccessFile file = new RandomAccessFile(filePath, "r");
         String line;
         String content;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while ((line = file.readLine()) != null) {
             sb.append(line);
         }
         content = sb.toString();
-        List<Policy> policyList = JSON.parseArray(content, Policy.class);
-        System.out.println(policyList.size());
-        return policyList;
+        return JSON.parseArray(content, Policy.class);
     }
 
 
@@ -41,8 +38,9 @@ public class JsonUtils {
      * @throws IOException
      */
     public static void serialize(List<Policy> policyList) throws IOException {
-        RandomAccessFile file = new RandomAccessFile(filePath, "rw");
-        file.write(JSON.toJSONBytes(policyList));
+        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath, false)));
+        br.write(JSON.toJSONString(policyList));
+        br.close();
     }
 
 
@@ -50,13 +48,9 @@ public class JsonUtils {
      * 增加rule
      * @param policy
      */
-    public static void addRule(Policy policy) {
+    public static void addRule(Policy policy) throws IOException {
         List<Policy> policyList = null;
-        try {
-            policyList = deserialize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        policyList = deserialize();
 
         if (policyList == null)
             return;
@@ -66,11 +60,7 @@ public class JsonUtils {
 
         policyList.add(policy);
 
-        try {
-            serialize(policyList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        serialize(policyList);
     }
 
 
@@ -78,33 +68,29 @@ public class JsonUtils {
      * 删除rule
      * @param policy
      */
-    public static void removeRule(Policy policy) {
+    public static void removeRule(Policy policy) throws IOException{
         List<Policy> policyList = null;
-        try {
-            policyList = deserialize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        policyList = deserialize();
 
         if (policyList == null)
             return;
 
-        if (!policyList.contains(policy))
+        if (!policyList.contains(policy)) {
+//            System.out.println("不存在");
             return;
+        }
 
         policyList.remove(policy);
 
-        try {
-            serialize(policyList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        serialize(policyList);
     }
 
 
     public static void main(String[] args) {
         try {
-            deserialize();
+//            deserialize();
+//            addRule(new Policy("FUCK","FUCK","FUCK"));
+            removeRule(new Policy("FUCK","FUCK","FUCK"));
         } catch (IOException e) {
             e.printStackTrace();
         }

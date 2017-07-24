@@ -20,8 +20,8 @@ public class JsonUtils {
      * 将policy.json反序列化成Policy对象
      * @throws IOException
      */
-    public static List<Policy> deserialize() throws IOException {
-        RandomAccessFile file = new RandomAccessFile(filePath, "r");
+    public static List<Policy> deserialize(File sourceFile) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(sourceFile, "r");
         String line;
         String content;
         StringBuilder sb = new StringBuilder();
@@ -37,8 +37,8 @@ public class JsonUtils {
      * 序列化Policy对象
      * @throws IOException
      */
-    public static void serialize(List<Policy> policyList) throws IOException {
-        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath, false)));
+    public static void serialize(List<Policy> policyList, File file) throws IOException {
+        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false)));
         br.write(JSON.toJSONString(policyList));
         br.close();
     }
@@ -48,9 +48,9 @@ public class JsonUtils {
      * 增加rule
      * @param policy
      */
-    public static void addRule(Policy policy) throws IOException {
-        List<Policy> policyList = null;
-        policyList = deserialize();
+    public static void addRule(Policy policy, File file) throws IOException {
+        List<Policy> policyList;
+        policyList = deserialize(file);
 
         if (policyList == null)
             return;
@@ -60,7 +60,7 @@ public class JsonUtils {
 
         policyList.add(policy);
 
-        serialize(policyList);
+        serialize(policyList, file);
     }
 
 
@@ -68,9 +68,9 @@ public class JsonUtils {
      * 删除rule
      * @param policy
      */
-    public static void removeRule(Policy policy) throws IOException{
-        List<Policy> policyList = null;
-        policyList = deserialize();
+    public static void removeRule(Policy policy, File file) throws IOException{
+        List<Policy> policyList;
+        policyList = deserialize(file);
 
         if (policyList == null)
             return;
@@ -82,17 +82,7 @@ public class JsonUtils {
 
         policyList.remove(policy);
 
-        serialize(policyList);
+        serialize(policyList, file);
     }
 
-
-    public static void main(String[] args) {
-        try {
-//            deserialize();
-//            addRule(new Policy("FUCK","FUCK","FUCK"));
-            removeRule(new Policy("FUCK","FUCK","FUCK"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

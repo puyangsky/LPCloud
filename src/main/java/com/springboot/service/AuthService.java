@@ -25,7 +25,8 @@ public class AuthService {
         String policyPath = policyUtil.getName();
         try {
             File policyFile = ResourceUtils.getFile("classpath:static/" + policyPath);
-            List<Policy> policies = JsonUtils.deserialize(policyFile);
+            JsonUtils<Policy> jsonUtils = new JsonUtils<Policy>();
+            List<Policy> policies = jsonUtils.deserialize(policyFile, request);
             if (policies.contains(request)) {
                 return true;
             }

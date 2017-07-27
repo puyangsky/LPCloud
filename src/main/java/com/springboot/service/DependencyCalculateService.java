@@ -2,6 +2,12 @@ package com.springboot.service;
 
 import com.springboot.model.API;
 import com.springboot.model.Model;
+import com.springboot.model.Policy;
+import com.springboot.model.Role;
+import com.springboot.util.JsonUtils;
+import com.springboot.util.PolicyUtil;
+import com.springboot.util.RoleUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -27,6 +33,39 @@ public class DependencyCalculateService {
     private double testCaseWeight = 1/3.0; /* 测试用例占比重 */
     private double serviceWeight = 1/3.0;  /* 服务占比重 */
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
+
+    @Autowired
+    private PolicyUtil policyUtil;
+
+    @Autowired
+    private RoleUtil roleUtil;
+
+    public boolean addRole(Role role) {
+        String filePath = roleUtil.getName();
+        JsonUtils<Role> jsonUtil = new JsonUtils<Role>();
+        try {
+            File file = ResourceUtils.getFile("classpath:static/" + filePath);
+            return jsonUtil.add(role, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
+    public boolean addPolicy(Policy policy) {
+        String policyPath = policyUtil.getName();
+        JsonUtils<Policy> jsonUtil = new JsonUtils<Policy>();
+        try {
+            File file = ResourceUtils.getFile("classpath:static/" + policyPath);
+            return jsonUtil.add(policy, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     // TODO 实施结果，修改OpenStack中的policy.json
     public void update(Model model) {

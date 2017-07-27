@@ -1,6 +1,7 @@
 package com.springboot;
 
 import com.springboot.util.PolicyUtil;
+import com.springboot.util.RoleUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @SpringBootApplication
-@EnableConfigurationProperties({PolicyUtil.class})
+@EnableConfigurationProperties({PolicyUtil.class, RoleUtil.class})
 @ComponentScan(basePackages = {"com.springboot"})
 public class Application extends SpringBootServletInitializer {
 

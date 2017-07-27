@@ -44,11 +44,6 @@
 </head>
 <body>
 <div class="container">
-    <!--<div>-->
-    <!--<label>Cells: </label><input id="cells" type="text" placeholder="Cells" value="5">-->
-    <!--<label>Rows: </label><input id="rows" type="text" placeholder="Rows" value="100">-->
-    <!--<button id="build" class="btn btn-default">Build</button>-->
-    <!--</div>-->
     <div class="title">
         <h1>OpenStack最小特权管理员列表展示</h1>
     </div>
@@ -65,7 +60,7 @@
     <button class="btn btn-primary btn-sm config" data-toggle="modal" data-target="#myModal">
         更改配置
     </button>
-    <button id="build" type="button" class="btn btn-primary btn-sm config" data-toggle="modal" data-target="" onclick="append()">
+    <button id="build" type="button" class="btn btn-primary btn-sm config" data-toggle="modal" data-target="#roleModal">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
     </button>
     <table id="table"
@@ -78,8 +73,6 @@
            data-pagination="true"
            data-height="500">  </table>
 
-
-    <!--<h2>创建模态框（Modal）</h2>-->
 
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -96,14 +89,6 @@
                 <div class="modal-body">
 
                     <form class="form form-body">
-                        <!--<div class="row form-row">-->
-                            <!--<div class="col-xs-4 mylabel">-->
-                                <!--依赖阈值：-->
-                            <!--</div>-->
-                            <!--<div class="col-xs-6">-->
-                                <!--<input type="text" id="threshold" class="form-control" placeholder="范围为0到1的小数" required autofocus>-->
-                            <!--</div>-->
-                        <!--</div>-->
                         <div class="row form-row">
                             <div class="col-xs-4 mylabel">
                                 管理员数量：
@@ -117,6 +102,55 @@
                 </div>
                 <div class="modal-footer">
                     <button id="update" type="button" class="btn btn-primary">提交更改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="roleModalLabel">
+                        增加规则
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form form-body">
+                        <div class="row form-row">
+                            <div class="col-xs-4 mylabel">
+                                管理员角色：
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" id="role" class="form-control" placeholder="角色" required>
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-xs-4 mylabel">
+                                管理员名称：
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" id="username" class="form-control" placeholder="名称" required>
+                            </div>
+                        </div>
+                        <div class="row form-row">
+                            <div class="col-xs-4 mylabel">
+                                管理员职能：
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text" id="duty" class="form-control" placeholder="职能" required>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="addRole" type="button" class="btn btn-primary">提交</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div><!-- /.modal-content -->
@@ -152,6 +186,30 @@
         });
     });
 
+    $("#addRole").click(function () {
+//        var threshold = $("#threshold").val();
+        var role = $("#role").val();
+        var username = $("#username").val();
+        var duty = $("#duty").val();
+        var data = {
+            "role": role,
+            "username":username,
+            "duty":duty
+        };
+        $.ajax({
+            url:"api/addRole",
+            type:"POST",
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success:function(result){
+                $("#roleModal").modal('hide');
+                alert("添加成功");
+//                $('#result').show().delay(2000).hide(0);
+                location.reload();
+            }
+        });
+    });
+
     $("#logout").click(function () {
         $.ajax({
             url:"api/logout",
@@ -164,50 +222,7 @@
         });
     });
 
-    function tdclick(tdobject){
-        var td=$(tdobject);
-        td.attr("onclick", "");
-        //1,取出当前td中的文本内容保存起来
-        var text=td.text();
-        //2,清空td里面的内容
-        td.html(""); //也可以用td.empty();
-        //3，建立一个文本框，也就是input的元素节点
-        var input=$("<input>");
-        //4，设置文本框的值是保存起来的文本内容
-        input.attr("value",text);
-        input.bind("blur",function(){
-            var inputnode=$(this);
-            var inputtext=inputnode.val();
-            var tdNode=inputnode.parent();
-            tdNode.html(inputtext);
-            tdNode.click(tdclick);
-            td.attr("onclick", "tdclick(this)");
-        });
-        input.keyup(function(event){
-            var myEvent =event||window.event;
-            var kcode=myEvent.keyCode;
-            if(kcode==13){
-                var inputnode=$(this);
-                var inputtext=inputnode.val();
-                var tdNode=inputnode.parent();
-                tdNode.html(inputtext);
-                tdNode.click(tdclick);
-            }
-        });
 
-        //5，将文本框加入到td中
-        td.append(input);
-        var t =input.val();
-        input.val("").focus().val(t);
-//              input.focus();
-
-        //6,清除点击事件
-        td.unbind("click");
-    }
-    function append(){
-        var strAppend = '<tr><td></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Subject" data-type="text" data-pk=+row.Id+"" data-title="用户名">新角色</a1></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Action" data-type="text" data-pk=+row.Id+"" data-title="用户名">新名称</a1></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Object" data-type="text" data-pk=+row.Id+"" data-title="用户名">新职能</a1></td><td><a href="#" class="btn btn-primary btn-sm" role="button">查看</a></td></tr>';
-        $("#table").append(strAppend).editableTableWidget();
-    }
 </script>
 <script type="text/javascript">
 
@@ -223,58 +238,58 @@
             queryParams: function (param) {
                 return {};
             },
-            //url: "data/data.json",
+            url: "role.json",
             columns: [{
                 checkbox: true
             },
                 {
-                    field: "Subject",
+                    field: "role",
                     title: "管理员角色",
                     formatter: function (value, row, index)
                     {
-                        return "<a1 href=\"#\" name=\"Subject\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员角色\">" + value + "</a1>";
+                        return "<a1 href=\"#\" name=\"role\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员角色\">" + value + "</a1>";
                     }
                 },
                 {
-                    field: "Action",
+                    field: "username",
                     title: "管理员名称",
                     formatter: function (value, row, index)
                     {
-                        return "<a1 href=\"#\" name=\"Action\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员名称\">" + value + "</a1>";
+                        return "<a1 href=\"#\" name=\"username\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员名称\">" + value + "</a1>";
                     }
                 },
                 {
-                    field: "Object",
+                    field: "duty",
                     title: "管理员职能",
                     formatter: function (value, row, index)
                     {
-                        return "<a1 href=\"#\" name=\"Object\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
+                        return "<a1 href=\"#\" name=\"duty\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
                     }
                 },
                 {
-                    field: "Url",
+                    field: "url",
                     title: "具体职能"
                 }],
             onClickRow: function (row, $element) {
                 curRow = row;
             },
             onLoadSuccess: function (aa, bb, cc) {
-                $("#table a1").editable({
-                    url: function (params) {
-                        var sName = $(this).attr("name");
-                        curRow[sName] = params.value;
-                        $.ajax({
-                            type: 'POST',
-                            url: "data/data.json",
-                            data: curRow,
-                            dataType: 'JSON',
-                            success: function (data, textStatus, jqXHR) {
-                            },
-                            error: function () { }
-                        });
-                    },
-                    type: 'text'
-                });
+//                $("#table a1").editable({
+//                    url: function (params) {
+//                        var sName = $(this).attr("name");
+//                        curRow[sName] = params.value;
+//                        $.ajax({
+//                            type: 'POST',
+//                            url: "data/role.json",
+//                            data: curRow,
+//                            dataType: 'JSON',
+//                            success: function (data, textStatus, jqXHR) {
+//                            },
+//                            error: function () { }
+//                        });
+//                    },
+//                    type: 'text'
+//                });
             }
         });
     });

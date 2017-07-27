@@ -12,15 +12,13 @@ import java.util.List;
  * Method:
  * Difficulty:
  */
-public class JsonUtils {
-
-    public static final String filePath = "/Users/imac/IdeaProjects/LPCloud/src/main/java/com/springboot/util/policy.json";
+public class JsonUtils<T> {
 
     /**
      * 将policy.json反序列化成Policy对象
      * @throws IOException
      */
-    public static List<Policy> deserialize(File sourceFile) throws IOException {
+    public List<T> deserialize(File sourceFile, T t) throws IOException {
         RandomAccessFile file = new RandomAccessFile(sourceFile, "r");
         String line;
         String content;
@@ -29,60 +27,54 @@ public class JsonUtils {
             sb.append(line);
         }
         content = sb.toString();
-        return JSON.parseArray(content, Policy.class);
+        return (List<T>) JSON.parseArray(content, t.getClass());
     }
 
 
     /**
-     * 序列化Policy对象
+     * 序列化T对象
      * @throws IOException
      */
-    public static void serialize(List<Policy> policyList, File file) throws IOException {
+    public void serialize(List<T> list, File file) throws IOException {
         BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false)));
-        br.write(JSON.toJSONString(policyList));
+        br.write(JSON.toJSONString(list));
         br.close();
     }
 
 
     /**
-     * 增加rule
-     * @param policy
+     * 增加t
+     * @param
      */
-    public static void addRule(Policy policy, File file) throws IOException {
-        List<Policy> policyList;
-        policyList = deserialize(file);
+    public boolean add(T t, File file) throws IOException {
+        List<T> list = deserialize(file, t);
 
-        if (policyList == null)
-            return;
+        if (list == null)
+            return false;
 
-        if (policyList.contains(policy))
-            return;
+        if (list.contains(t))
+            return false;
 
-        policyList.add(policy);
-
-        serialize(policyList, file);
+        list.add(t);
+        serialize(list, file);
+        return true;
     }
 
 
     /**
-     * 删除rule
-     * @param policy
+     * 删除t
      */
-    public static void removeRule(Policy policy, File file) throws IOException{
-        List<Policy> policyList;
-        policyList = deserialize(file);
+    public boolean remove(T t, File file) throws IOException{
+        List<T> list = deserialize(file, t);
+        if (list == null || !list.contains(t))
+            return true;
 
-        if (policyList == null)
-            return;
-
-        if (!policyList.contains(policy)) {
-//            System.out.println("不存在");
-            return;
+        try {
+            list.remove(t);
+            serialize(list, file);
+            return true;
+        }catch (Exception e) {
+            return false;
         }
-
-        policyList.remove(policy);
-
-        serialize(policyList, file);
     }
-
 }

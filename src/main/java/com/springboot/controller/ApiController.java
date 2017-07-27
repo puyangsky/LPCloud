@@ -2,6 +2,8 @@ package com.springboot.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
+import com.springboot.model.Policy;
+import com.springboot.model.Role;
 import com.springboot.model.User;
 import com.springboot.service.DependencyCalculateService;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,7 @@ import java.io.IOException;
 @RequestMapping("/api")
 public class ApiController {
     @Resource
-    private DependencyCalculateService dependencyCalculateService;
+    private DependencyCalculateService calcService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -33,21 +35,14 @@ public class ApiController {
         return jsonObject.toString();
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @RequestMapping(value = "/addRole", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    String index(HttpServletRequest request) {
-        try {
-            BufferedInputStream bis = new BufferedInputStream(request.getInputStream());
-            byte[] bytes = new byte[1024];
-            StringBuilder sb = new StringBuilder();
-            while (bis.read(bytes) !=0) {
-                sb.append(new String(bytes));
-            }
-            return sb.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
+    String addRule(@RequestBody Role role) {
+        if (calcService.addRole(role)) {
+            return "success";
+        }else {
+            return "false";
         }
-        return "";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
@@ -55,7 +50,7 @@ public class ApiController {
     String update(@RequestBody Model model) {
 //        String path = request.getServletContext().getContextPath();
 //        System.out.println(path);
-        dependencyCalculateService.update(model);
+        calcService.update(model);
         return model == null ? "" : model.toString();
     }
 

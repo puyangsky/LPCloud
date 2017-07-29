@@ -75,4 +75,14 @@ public class Role {
         result = 31 * result + (url != null ? url.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "role='" + role + '\'' +
+                ", username='" + username + '\'' +
+                ", duty='" + duty + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

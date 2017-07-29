@@ -4,21 +4,25 @@ import com.springboot.model.Policy;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
+import javax.annotation.Resource;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.List;
 
 /**
  * Author:      puyangsky
  * Date:        17/7/24 下午11:48
  */
-@Service
+@Component
 public class AuthService {
 
-    @Autowired
+    @Resource
     private PolicyUtil policyUtil;
 
     public boolean enforce(Policy request) {
@@ -35,5 +39,14 @@ public class AuthService {
         }
 
         return false;
+    }
+
+    public void test() throws IOException {
+        File policyFile = ResourceUtils.getFile("classpath:static/role.json");
+        RandomAccessFile file = new RandomAccessFile(policyFile, "r");
+        String s;
+        while ((s = file.readLine())!= null) {
+            System.out.println(s);
+        }
     }
 }

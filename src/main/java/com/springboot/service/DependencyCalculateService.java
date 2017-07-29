@@ -44,7 +44,7 @@ public class DependencyCalculateService {
         String filePath = roleUtil.getName();
         JsonUtils<Role> jsonUtil = new JsonUtils<Role>();
         try {
-            File file = ResourceUtils.getFile("classpath:static/" + filePath);
+            File file = new File(filePath);
             return jsonUtil.add(role, file);
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class DependencyCalculateService {
         String policyPath = policyUtil.getName();
         JsonUtils<Policy> jsonUtil = new JsonUtils<Policy>();
         try {
-            File file = ResourceUtils.getFile("classpath:static/" + policyPath);
+            File file = new File(policyPath);
             return jsonUtil.add(policy, file);
         } catch (IOException e) {
             e.printStackTrace();

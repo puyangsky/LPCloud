@@ -1,11 +1,14 @@
 package com.springboot.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
 import com.springboot.model.Policy;
 import com.springboot.model.Role;
 import com.springboot.model.User;
 import com.springboot.service.DependencyCalculateService;
+import com.springboot.service.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Author: puyangsky
@@ -24,8 +28,12 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/api")
 public class ApiController {
+
     @Resource
     private DependencyCalculateService calcService;
+
+    @Resource
+    private RoleService roleService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -38,11 +46,22 @@ public class ApiController {
     @RequestMapping(value = "/addRole", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     String addRule(@RequestBody Role role) {
-        if (calcService.addRole(role)) {
+        try {
+            roleService.addRole(role);
             return "success";
-        }else {
-            return "false";
+        }catch (Exception e) {
+            e.printStackTrace();
         }
+
+        return "fail";
+    }
+
+    @RequestMapping(value = "/getRole", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    List<Role> getRole() {
+        List<Role> roleList = roleService.getRoleList();
+        if (roleList == null) return null;
+        return roleList;
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
@@ -60,7 +79,7 @@ public class ApiController {
     String login(HttpServletRequest request, @RequestBody User user) {
         if (user == null)
             return "fail";
-        if (user.getEmail().equals("admin@osvt.net") && user.getPassword().equals("123456")){
+        if (user.getEmail().equals("admin@osvt.net") && user.getPassword().equals("123")){
             request.getSession().setAttribute("user", "admin");
             return "success";
         }else {

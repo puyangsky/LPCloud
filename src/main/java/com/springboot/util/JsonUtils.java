@@ -19,11 +19,11 @@ public class JsonUtils<T> {
      * @throws IOException
      */
     public List<T> deserialize(File sourceFile, T t) throws IOException {
-        RandomAccessFile file = new RandomAccessFile(sourceFile, "r");
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sourceFile), "GBK"));
         String line;
         String content;
         StringBuilder sb = new StringBuilder();
-        while ((line = file.readLine()) != null) {
+        while ((line = br.readLine()) != null) {
             sb.append(line);
         }
         content = sb.toString();
@@ -36,7 +36,8 @@ public class JsonUtils<T> {
      * @throws IOException
      */
     public void serialize(List<T> list, File file) throws IOException {
-        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false)));
+        System.out.println(file.getAbsoluteFile());
+        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), "UTF-8"));
         br.write(JSON.toJSONString(list));
         br.close();
     }

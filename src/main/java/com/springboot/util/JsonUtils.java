@@ -19,7 +19,7 @@ public class JsonUtils<T> {
      * @throws IOException
      */
     public List<T> deserialize(File sourceFile, T t) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sourceFile), "GBK"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sourceFile), "UTF-8"));
         String line;
         String content;
         StringBuilder sb = new StringBuilder();

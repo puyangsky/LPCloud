@@ -46,6 +46,9 @@ public class RoleService {
         System.out.println("将角色写入文件：" + role.getRole());
     }
 
+    /**
+     * 把内存中的角色列表写到文件中去
+     */
     public void dumpRole() {
         if (roleList == null) return;
 
@@ -67,6 +70,9 @@ public class RoleService {
         }
     }
 
+    /**
+     * 从文件中读取到角色列表
+     */
     private void fillRoleList() {
         String filePath = roleUtil.getName();
         JsonUtils<Role> jsonUtils = new JsonUtils<Role>();

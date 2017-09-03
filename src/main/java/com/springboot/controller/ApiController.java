@@ -1,14 +1,11 @@
 package com.springboot.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
-import com.springboot.model.Policy;
 import com.springboot.model.Role;
 import com.springboot.model.User;
-import com.springboot.service.DependencyCalculateService;
+import com.springboot.service.PolicyService;
 import com.springboot.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -30,7 +25,7 @@ import java.util.List;
 public class ApiController {
 
     @Resource
-    private DependencyCalculateService calcService;
+    private PolicyService calcService;
 
     @Resource
     private RoleService roleService;

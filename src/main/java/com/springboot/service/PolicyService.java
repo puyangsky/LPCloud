@@ -3,10 +3,8 @@ package com.springboot.service;
 import com.springboot.model.API;
 import com.springboot.model.Model;
 import com.springboot.model.Policy;
-import com.springboot.model.Role;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
-import com.springboot.util.RoleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
@@ -20,9 +18,9 @@ import java.util.logging.Logger;
  * Date: 17/5/9
  */
 @Component
-public class DependencyCalculateService {
+public class PolicyService {
 
-    private Logger logger = Logger.getLogger(DependencyCalculateService.class.getName());
+    private Logger logger = Logger.getLogger(PolicyService.class.getName());
     private String []services = {"nova", "glance", "keystone", "cinder"};
     private final int open = 0;
     private Map<String, API> APIMap = new HashMap<String, API>();
@@ -36,22 +34,6 @@ public class DependencyCalculateService {
 
     @Autowired
     private PolicyUtil policyUtil;
-
-    @Autowired
-    private RoleUtil roleUtil;
-
-    public boolean addRole(Role role) {
-        String filePath = roleUtil.getName();
-        JsonUtils<Role> jsonUtil = new JsonUtils<Role>();
-        try {
-            File file = new File(filePath);
-            return jsonUtil.add(role, file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return false;
-    }
 
 
     public boolean addPolicy(Policy policy) {

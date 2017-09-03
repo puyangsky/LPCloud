@@ -23,9 +23,9 @@ public class AuthController {
 
     @RequestMapping(value = "/enforce", method = RequestMethod.POST)
     @ResponseBody
-    public String auth(@RequestBody Policy requst) {
+    public String auth(@RequestBody Policy request) {
         JSONObject result = new JSONObject();
-        result.put("result", authService.enforce(requst));
+        result.put("result", authService.enforce(request));
         return result.toString();
     }
 }

@@ -18,7 +18,7 @@ import java.io.*;
 public class DependencyServiceTest {
 
     @Autowired
-    DependencyCalculateService service;
+    PolicyService service;
 
     @Test
     public void test() {

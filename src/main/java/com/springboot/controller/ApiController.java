@@ -1,16 +1,16 @@
 package com.springboot.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
+import com.springboot.model.Policy;
 import com.springboot.model.Role;
 import com.springboot.model.User;
 import com.springboot.service.PolicyService;
 import com.springboot.service.RoleService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +29,9 @@ public class ApiController {
 
     @Resource
     private RoleService roleService;
+
+    @Resource
+    private PolicyService policyService;
 
     @RequestMapping("/")
     @ResponseBody
@@ -97,5 +100,15 @@ public class ApiController {
     @ResponseBody
     String addApi(HttpServletRequest request) {
         return "";
+    }
+
+
+    @RequestMapping(value = "/getPolicy", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Policy> getPolicyList(@RequestParam(name = "service") String serviceName) {
+        if (StringUtils.isEmpty(serviceName)) {
+            return null;
+        }
+        return policyService.getPolicyListByServiceName(serviceName);
     }
 }

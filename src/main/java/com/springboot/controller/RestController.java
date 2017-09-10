@@ -82,4 +82,9 @@ public class RestController {
     public String agent() {
         return "agentAdmin";
     }
+
+    @RequestMapping(value = "/employ", method = RequestMethod.GET)
+    public String employ() {
+        return "employAdmin";
+    }
 }

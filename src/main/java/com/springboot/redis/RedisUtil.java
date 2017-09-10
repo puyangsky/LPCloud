@@ -19,13 +19,10 @@ public class RedisUtil {
     private RedisTemplate<String, ?> redisTemplate;
 
     public boolean set(final String key, final String value) {
-        return redisTemplate.execute(new RedisCallback<Boolean>() {
-            @Override
-            public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
-                connection.set(serializer.serialize(key), serializer.serialize(value));
-                return true;
-            }
+        return redisTemplate.execute((RedisCallback<Boolean>) connection -> {
+            RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
+            connection.set(serializer.serialize(key), serializer.serialize(value));
+            return true;
         });
     }
 

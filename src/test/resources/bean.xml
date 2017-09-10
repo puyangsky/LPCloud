@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <!-- 使用类构造器实例化 -->
+    <bean id="authService" class="com.springboot.service.AuthService"></bean>
+    <!-- 使用静态工厂方法实例化 -->
+    <!--<bean id="personService2" class="service.PersonServiceFactory" factory-method="createPersonService"></bean>-->
+    <!-- 使用实例工厂方法实例化 -->
+    <!--<bean id="personServiceFactory" class="service.PersonServiceFactory"></bean>-->
+    <!--<bean id="personService3" factory-bean="personServiceFactory" factory-method="createPersonServiceD"></bean>-->
+</beans>

@@ -12,6 +12,7 @@ import org.springframework.util.ResourceUtils;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  * Author: puyangsky
@@ -31,9 +32,27 @@ public class PolicyService {
     private double testCaseWeight = 1/3.0; /* 测试用例占比重 */
     private double serviceWeight = 1/3.0;  /* 服务占比重 */
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
+    private List<Policy> policyList = new ArrayList<>();
 
     @Autowired
     private PolicyUtil policyUtil;
+
+    public List<Policy> getPolicyListByServiceName(String serviceName) {
+        if (policyList == null || policyList.size() == 0) {
+            fillPolicyList();
+        }
+        return policyList.stream().filter(policy -> policy.getSubject().equals(serviceName)).collect(Collectors.toList());
+    }
+
+    private void fillPolicyList() {
+        String path = policyUtil.getName();
+        JsonUtils<Policy> jsonUtils = new JsonUtils<>();
+        try {
+            policyList = jsonUtils.deserialize(new File(path), new Policy());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public boolean addPolicy(Policy policy) {

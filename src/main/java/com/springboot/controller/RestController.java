@@ -1,8 +1,10 @@
 package com.springboot.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,48 +45,10 @@ public class RestController {
         return "index";
     }
 
-    @RequestMapping(value = "/image", method = RequestMethod.GET)
-    public String image() {
-        return "imageAdmin";
-    }
-
-    @RequestMapping(value = "/netConfig", method = RequestMethod.GET)
-    public String net() {
-        return "netConfigAdmin";
-    }
-
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
-    public String policy() {
-        return "policyAdmin";
-    }
-
-    @RequestMapping(value = "/qos", method = RequestMethod.GET)
-    public String qos() {
-        return "qosAdmin";
-    }
-
-    @RequestMapping(value = "/quota", method = RequestMethod.GET)
-    public String quota() {
-        return "quotaAdmin";
-    }
-
-    @RequestMapping(value = "/snapshots", method = RequestMethod.GET)
-    public String snapshots() {
-        return "snapshotsAdmin";
-    }
-
-    @RequestMapping(value = "/instance", method = RequestMethod.GET)
-    public String instance() {
-        return "instanceAdmin";
-    }
-
-    @RequestMapping(value = "/agent", method = RequestMethod.GET)
-    public String agent() {
-        return "agentAdmin";
-    }
-
-    @RequestMapping(value = "/employ", method = RequestMethod.GET)
-    public String employ() {
-        return "employAdmin";
+    public String getPolicy(@RequestParam(name = "name") String name,
+                            ModelMap model) {
+        model.put("adminName", name);
+        return "policy";
     }
 }

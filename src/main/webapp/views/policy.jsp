@@ -1,3 +1,5 @@
+<%@ page language="java" import="java.util.*"  %>
+<%@ page contentType="text/html;charset=utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +24,13 @@
     <!--<button id="build" class="btn btn-default">Build</button>-->
     <!--</div>-->
     <div class="title">
-        <h1>OpenStack最小特权策略展示</h1>
+        <h1>${adminName}最小特权策略展示</h1>
     </div>
     <table id="table"
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="../data/instanceAdmin.json"
+           data-url="../data/agentAdmin.json"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
@@ -104,7 +106,7 @@
             queryParams: function (param) {
                 return {};
             },
-            url: "/api/getPolicy?service=instanceAdmin",
+            url: "/api/getPolicy?service=${adminName}",
             columns: [{
                 checkbox: true
             },
@@ -142,7 +144,7 @@
                         curRow[sName] = params.value;
                         $.ajax({
                             type: 'POST',
-                            url: "../data/instanceAdmin.json",
+                            url: "../data/agentAdmin.json",
                             data: curRow,
                             dataType: 'JSON',
                             success: function (data, textStatus, jqXHR) {

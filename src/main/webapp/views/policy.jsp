@@ -13,18 +13,22 @@
             margin-top: 60px;
             text-align: center;
         }
+        .index{
+            float: right;
+            margin: 10px;
+        }
     </style>
 
 </head>
 <body>
 <div class="container">
-    <!--<div>-->
-    <!--<label>Cells: </label><input id="cells" type="text" placeholder="Cells" value="5">-->
-    <!--<label>Rows: </label><input id="rows" type="text" placeholder="Rows" value="100">-->
-    <!--<button id="build" class="btn btn-default">Build</button>-->
-    <!--</div>-->
     <div class="title">
         <h1>${adminName}最小特权策略展示</h1>
+    </div>
+    <div class="index">
+        <button id="index" class="btn btn-primary btn-sm">
+            返回首页
+        </button>
     </div>
     <table id="table"
            data-show-columns="true"
@@ -35,9 +39,7 @@
            data-show-toggle="true"
            data-pagination="true"
            data-height="500">  </table>
-    <button id="build" type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick="append()">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
-    </button>
+
 </div>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -88,10 +90,7 @@
         //6,清除点击事件
         td.unbind("click");
     }
-    function append(){
-        var strAppend = '<tr><td></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Subject" data-type="text" data-pk=+row.Id+"" data-title="用户名">新主体</a1></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Action" data-type="text" data-pk=+row.Id+"" data-title="用户名">新操作</a1></td><td onclick="tdclick(this)"><a1 href="#" id="OK" name="Object" data-type="text" data-pk=+row.Id+"" data-title="用户名">新客体</a1></td></tr>';
-        $("#table").append(strAppend).editableTableWidget();
-    }
+
 </script>
 <script>
     var curRow = {};
@@ -156,6 +155,10 @@
                     type: 'text'
                 });
             },
+        });
+
+        $("#index").click(function () {
+            window.location.href="/";
         });
     });
 </script>

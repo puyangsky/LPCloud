@@ -1,9 +1,0 @@
-[
-    {"action": "POST", "object": "/images", "subject": "imageAdmin"},
-    {"action": "PUT", "object": "/images/UUID/file", "subject": "imageAdmin"},
-    {"action": "POST", "object": "/images/UUID/actions/deactivate", "subject": "imageAdmin"},
-    {"action": "GET", "object": "/images/UUID", "subject": "imageAdmin"},
-    {"action": "GET", "object": "/images/UUID/file", "subject": "imageAdmin"},
-    {"action": "POST", "object": "/images/UUID/actions/reactivate", "subject": "imageAdmin"},
-    {"action": "DELETE", "object": "/images/UUID", "subject": "imageAdmin"}
-]

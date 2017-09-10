@@ -70,7 +70,7 @@
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="../data/data.json"
+           data-url="/api/getRole"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
@@ -100,20 +100,6 @@
                                 <input type="text" id="adminCount" class="form-control" placeholder="正整数，默认为1" required>
                             </div>
                         </div>
-                        <!--<div class="row form-row">-->
-                            <!--<div class="col-xs-4 mylabel">-->
-                                <!--管理员数量：-->
-                            <!--</div>-->
-                            <!--<div class="col-xs-6">-->
-                                <!--<select>-->
-                                    <!--<option value="volvo">Volvo</option>-->
-                                    <!--<option value="saab">Saab</option>-->
-                                    <!--<option value="opel">Opel</option>-->
-                                    <!--<option value="audi">Audi</option>-->
-                                <!--</select>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
                     </form>
 
                 </div>
@@ -187,7 +173,6 @@
 <script src="../js/bootstrap-table-export.js"></script>
 <script>
     $("#update").click(function () {
-//        var threshold = $("#threshold").val();
         var count = $("#adminCount").val();
         var data = {"count": count};
         $.ajax({
@@ -197,14 +182,12 @@
             data: JSON.stringify(data),
             success:function(result){
                 $("#myModal").modal('hide');
-//                alert(result);
                 $('#result').show().delay(2000).hide(0);
             }
         });
     });
 
     $("#addRole").click(function () {
-//        var threshold = $("#threshold").val();
         var role = $("#role").val();
         var username = $("#username").val();
         var duty = $("#duty").val();
@@ -221,7 +204,6 @@
             success:function(result){
                 $("#roleModal").modal('hide');
                 alert("添加成功");
-//                $('#result').show().delay(2000).hide(0);
                 location.reload();
             }
         });
@@ -290,24 +272,7 @@
             onClickRow: function (row, $element) {
                 curRow = row;
             },
-            onLoadSuccess: function (aa, bb, cc) {
-//                $("#table a1").editable({
-//                    url: function (params) {
-//                        var sName = $(this).attr("name");
-//                        curRow[sName] = params.value;
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: "data/role.json",
-//                            data: curRow,
-//                            dataType: 'JSON',
-//                            success: function (data, textStatus, jqXHR) {
-//                            },
-//                            error: function () { }
-//                        });
-//                    },
-//                    type: 'text'
-//                });
-            }
+            onLoadSuccess: function (aa, bb, cc) {}
         });
     });
 </script>

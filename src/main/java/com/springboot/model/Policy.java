@@ -7,6 +7,7 @@ package com.springboot.model;
  * Difficulty:
  */
 public class Policy {
+    private int id;
     private String subject;
     private String object;
     private String action;
@@ -35,6 +36,21 @@ public class Policy {
         this.action = action;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Policy(int id, String subject, String object, String action) {
+        this.id = id;
+        this.subject = subject;
+        this.object = object;
+        this.action = action;
+    }
+
     public Policy(String subject, String object, String action) {
         this.subject = subject;
         this.object = object;
@@ -51,16 +67,18 @@ public class Policy {
 
         Policy policy = (Policy) o;
 
-        if (subject != null ? !subject.equals(policy.subject) : policy.subject != null) return false;
-        if (object != null ? !object.equals(policy.object) : policy.object != null) return false;
-        return action != null ? action.equals(policy.action) : policy.action == null;
+        if (id != policy.id) return false;
+        if (!subject.equals(policy.subject)) return false;
+        if (!object.equals(policy.object)) return false;
+        return action.equals(policy.action);
     }
 
     @Override
     public int hashCode() {
-        int result = subject != null ? subject.hashCode() : 0;
-        result = 31 * result + (object != null ? object.hashCode() : 0);
-        result = 31 * result + (action != null ? action.hashCode() : 0);
+        int result = id;
+        result = 31 * result + subject.hashCode();
+        result = 31 * result + object.hashCode();
+        result = 31 * result + action.hashCode();
         return result;
     }
 }

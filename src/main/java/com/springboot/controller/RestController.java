@@ -2,6 +2,7 @@ package com.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,8 +47,10 @@ public class RestController {
     }
 
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
-    public String getPolicy(@RequestParam(name = "name") String name,
-                            ModelMap model) {
+    public String getPolicy(@RequestParam(name = "name") String name, ModelMap model) {
+        if (StringUtils.isEmpty(name)) {
+            return "Invalid parameter";
+        }
         model.put("adminName", name);
         return "policy";
     }

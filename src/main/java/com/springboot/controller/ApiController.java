@@ -1,7 +1,5 @@
 package com.springboot.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.springboot.model.Model;
 import com.springboot.model.Policy;
 import com.springboot.model.Role;
@@ -33,14 +31,6 @@ public class ApiController {
     @Resource
     private PolicyService policyService;
 
-    @RequestMapping("/")
-    @ResponseBody
-    String home() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("hello", "LPCloud");
-        return jsonObject.toString();
-    }
-
     @RequestMapping(value = "/addRole", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     String addRule(@RequestBody Role role) {
@@ -65,10 +55,11 @@ public class ApiController {
     @RequestMapping(value = "/update", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     String update(@RequestBody Model model) {
-//        String path = request.getServletContext().getContextPath();
-//        System.out.println(path);
+        if (model == null || model.getCount() <= 0) {
+            return "Invalid parameter";
+        }
         calcService.update(model);
-        return model == null ? "" : model.toString();
+        return model.toString();
     }
 
 

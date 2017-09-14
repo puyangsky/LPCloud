@@ -1,8 +1,11 @@
 package com.springboot.service;
 
+import com.alibaba.fastjson.JSON;
 import com.springboot.model.API;
 import com.springboot.model.Model;
 import com.springboot.model.Policy;
+import com.springboot.model.Role;
+import com.springboot.util.FileUtil;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +26,25 @@ public class PolicyService {
 
     private Logger logger = Logger.getLogger(PolicyService.class.getName());
     private String []services = {"nova", "glance", "keystone", "cinder"};
-    private final int open = 0;
+    private final static int open = 0;
     private Map<String, API> APIMap = new HashMap<String, API>();
     private Set<String> APISet = new HashSet<String>();
     private Map<String, Double> scoreMap = new HashMap<String, Double>();
     private double threshold = 1.0;
-    private double resourceWeight = 1/3.0; /* 资源占比重 */
-    private double testCaseWeight = 1/3.0; /* 测试用例占比重 */
-    private double serviceWeight = 1/3.0;  /* 服务占比重 */
+    private final static double resourceWeight = 1/3.0; /* 资源占比重 */
+    private final static double testCaseWeight = 1/3.0; /* 测试用例占比重 */
+    private final static double serviceWeight = 1/3.0;  /* 服务占比重 */
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
     private List<Policy> policyList = new ArrayList<>();
+    public static int administratorCount = 10;//默认为10
+
+    private final static String baseUrl = "<a href='policy?name=%s' class='btn btn-primary btn-sm' role='button'>查看</a>";
 
     @Autowired
     private PolicyUtil policyUtil;
+
+    @Autowired
+    private RoleService roleService;
 
     public List<Policy> getPolicyListByServiceName(String serviceName) {
         if (policyList == null || policyList.size() == 0) {
@@ -70,15 +79,29 @@ public class PolicyService {
 
     // TODO 实施结果，修改OpenStack中的policy.json
     public void update(Model model) {
-        int count = model.getCount();
+        if (administratorCount == model.getCount())
+        administratorCount = model.getCount();
 
-        try {
-            resolve(count);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        List<Role> roles = new ArrayList<>(administratorCount);
+
+        for (Policy policy : policyList) {
+            for (int i = 1; i <= administratorCount; i++) {
+                String adminName = "admin-" + i;
+                Role role = new Role();
+                role.setUsername(adminName);
+                role.setDuty("test");
+                role.setRole(adminName);
+                role.setUrl(String.format(baseUrl, adminName));
+                if (policy.getId() % i == 0) {
+                    policy.setSubject(adminName);
+                    // TODO 把修改后的Policy持久化到policy.json中
+                }
+
+                roles.add(role);
+            }
         }
+
+        roleService.addRoles(roles);
 
     }
 
@@ -286,6 +309,12 @@ public class PolicyService {
         }
 
         return partitionResult.size();
+    }
+
+    public void dumpPolicy() {
+        if (policyList == null) return;
+        String filePath = policyUtil.getName();
+        FileUtil.dump(filePath, policyList);
     }
 
 }

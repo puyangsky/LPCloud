@@ -2,6 +2,7 @@ package com.springboot.service;
 
 import com.alibaba.fastjson.JSON;
 import com.springboot.model.Role;
+import com.springboot.util.FileUtil;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.RoleUtil;
 import org.springframework.stereotype.Component;
@@ -46,6 +47,24 @@ public class RoleService {
         System.out.println("将角色写入文件：" + role.getRole());
     }
 
+
+    public void addRoles(List<Role> roles) {
+        if (roleList == null) {
+            fillRoleList();
+        }
+
+        roles.forEach(role -> {
+            if (!roleList.contains(role)) {
+                roleList.add(role);
+                System.out.println("增加角色：" + role.toString());
+            }
+        });
+
+        dumpRole();
+    }
+
+
+
     /**
      * 把内存中的角色列表写到文件中去
      */
@@ -53,21 +72,8 @@ public class RoleService {
         if (roleList == null) return;
 
         String filePath = roleUtil.getName();
-        BufferedWriter br = null;
-        try {
-            br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath, false), "UTF-8"));
-            br.write(JSON.toJSONString(roleList));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+        FileUtil.dump(filePath, roleList);
     }
 
     /**

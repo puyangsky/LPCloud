@@ -37,6 +37,8 @@ public class PolicyService {
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
     private List<Policy> policyList = new ArrayList<>();
     public static int administratorCount = 10;//默认为10
+    private JsonUtils<Policy> jsonUtils;
+    private File policyFile;
 
     private final static String baseUrl = "<a href='policy?name=%s' class='btn btn-primary btn-sm' role='button'>查看</a>";
 
@@ -55,9 +57,10 @@ public class PolicyService {
 
     private void fillPolicyList() {
         String path = policyUtil.getName();
-        JsonUtils<Policy> jsonUtils = new JsonUtils<>();
+        policyFile = new File(path);
+        jsonUtils = new JsonUtils<>();
         try {
-            policyList = jsonUtils.deserialize(new File(path), new Policy());
+            policyList = jsonUtils.deserialize(policyFile, new Policy());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,13 +99,12 @@ public class PolicyService {
                     policy.setSubject(adminName);
                     // TODO 把修改后的Policy持久化到policy.json中
                 }
-
                 roles.add(role);
             }
         }
 
         roleService.addRoles(roles);
-
+        dumpPolicy();
     }
 
     /**
@@ -151,36 +153,9 @@ public class PolicyService {
             case 1:
                 print(APIMap);
                 break;
-            case 2:
-                dump(APIMap);
-                break;
         }
     }
 
-    /**
-     * 把API写到文件
-     * @param APIMap
-     */
-    private void dump(Map<String, API> APIMap) {
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/Users/imac/Desktop/test.txt", true)));
-
-            for (Map.Entry<String, API> entry : APIMap.entrySet()) {
-                out.write(entry.getValue().toString() + "\n");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(out != null){
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     /**
      * 输出API
@@ -311,10 +286,15 @@ public class PolicyService {
         return partitionResult.size();
     }
 
-    public void dumpPolicy() {
+    private void dumpPolicy() {
         if (policyList == null) return;
-        String filePath = policyUtil.getName();
-        FileUtil.dump(filePath, policyList);
+        try {
+            jsonUtils.serialize(policyList, policyFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Dump " + policyList.size() + " policy into file " + policyFile.getPath());
     }
 
 }

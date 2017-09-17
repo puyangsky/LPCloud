@@ -16,6 +16,7 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Author: puyangsky
@@ -60,7 +61,7 @@ public class PolicyService {
         policyFile = new File(path);
         jsonUtils = new JsonUtils<>();
         try {
-            policyList = jsonUtils.deserialize(policyFile, new Policy());
+            policyList = jsonUtils.deserialize(policyFile, Policy.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,28 +83,33 @@ public class PolicyService {
 
     // TODO 实施结果，修改OpenStack中的policy.json
     public void update(Model model) {
-        if (administratorCount == model.getCount())
-        administratorCount = model.getCount();
-
-        List<Role> roles = new ArrayList<>(administratorCount);
-
-        for (Policy policy : policyList) {
-            for (int i = 1; i <= administratorCount; i++) {
-                String adminName = "admin-" + i;
-                Role role = new Role();
-                role.setUsername(adminName);
-                role.setDuty("test");
-                role.setRole(adminName);
-                role.setUrl(String.format(baseUrl, adminName));
-                if (policy.getId() % i == 0) {
-                    policy.setSubject(adminName);
-                    // TODO 把修改后的Policy持久化到policy.json中
-                }
-                roles.add(role);
-            }
+        if (administratorCount != model.getCount()) {
+            administratorCount = model.getCount();
         }
 
-        roleService.addRoles(roles);
+        if (policyList == null || policyList.size() == 0) {
+            fillPolicyList();
+        }
+        List<Role> roles = new ArrayList<>(administratorCount);
+        IntStream.rangeClosed(1, administratorCount).forEach(i->{
+            String adminName = "admin-" + i;
+            Role role = new Role();
+            role.setUsername(adminName);
+            role.setDuty("test");
+            role.setRole(adminName);
+            role.setUrl(String.format(baseUrl, adminName));
+            roles.add(role);
+        });
+        for (Policy policy : policyList) {
+            IntStream.rangeClosed(1, administratorCount).forEach(i -> {
+                String adminName = "admin-" + i;
+                if (policy.getId() % i == 0) {
+                    policy.setSubject(adminName);
+                }
+            });
+        }
+        roleService.setRoleList(roles);
+        // 把修改后的Policy持久化到policy.json中
         dumpPolicy();
     }
 
@@ -287,7 +293,9 @@ public class PolicyService {
     }
 
     private void dumpPolicy() {
-        if (policyList == null) return;
+        if (policyList == null || policyList.size() == 0) {
+            fillPolicyList();
+        }
         try {
             jsonUtils.serialize(policyList, policyFile);
         } catch (IOException e) {

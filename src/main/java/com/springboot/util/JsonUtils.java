@@ -18,7 +18,7 @@ public class JsonUtils<T> {
      * 将policy.json反序列化成Policy对象
      * @throws IOException
      */
-    public List<T> deserialize(File sourceFile, T t) throws IOException {
+    public List<T> deserialize(File sourceFile, Class clazz) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sourceFile), "UTF-8"));
         String line;
         String content;
@@ -28,7 +28,7 @@ public class JsonUtils<T> {
             sb.append(line);
         }
         content = sb.toString();
-        return (List<T>) JSON.parseArray(content, t.getClass());
+        return (List<T>) JSON.parseArray(content, clazz);
     }
 
 
@@ -37,7 +37,6 @@ public class JsonUtils<T> {
      * @throws IOException
      */
     public void serialize(List<T> list, File file) throws IOException {
-        System.out.println(file.getAbsoluteFile());
         BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), "UTF-8"));
         br.write(JSON.toJSONString(list));
         br.close();
@@ -49,7 +48,7 @@ public class JsonUtils<T> {
      * @param
      */
     public boolean add(T t, File file) throws IOException {
-        List<T> list = deserialize(file, t);
+        List<T> list = deserialize(file, t.getClass());
 
         if (list == null)
             return false;
@@ -67,7 +66,7 @@ public class JsonUtils<T> {
      * 删除t
      */
     public boolean remove(T t, File file) throws IOException{
-        List<T> list = deserialize(file, t);
+        List<T> list = deserialize(file, t.getClass());
         if (list == null || !list.contains(t))
             return true;
 

@@ -42,6 +42,10 @@
             float: right;
             margin: 10px;
         }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle!important;
+        }
     </style>
 
 </head>
@@ -182,7 +186,8 @@
             data: JSON.stringify(data),
             success:function(result){
                 $("#myModal").modal('hide');
-                $('#result').show().delay(2000).hide(0);
+                alert("更新成功");
+                location.reload();
             }
         });
     });
@@ -217,6 +222,7 @@
                 if (result == "success") {
                     window.location.href="/login";
                 }
+                location.reload();
             }
         });
     });
@@ -238,9 +244,10 @@
                 return {};
             },
             url: "/api/getRole",
-            columns: [{
-                checkbox: true
-            },
+            columns: [
+//                {
+//                    checkbox: false
+//                },
                 {
                     field: "role",
                     title: "管理员角色",
@@ -257,14 +264,14 @@
                         return "<a1 href=\"#\" name=\"username\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员名称\">" + value + "</a1>";
                     }
                 },
-                {
-                    field: "duty",
-                    title: "管理员职能",
-                    formatter: function (value, row, index)
-                    {
-                        return "<a1 href=\"#\" name=\"duty\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
-                    }
-                },
+//                {
+//                    field: "duty",
+//                    title: "管理员职能",
+//                    formatter: function (value, row, index)
+//                    {
+//                        return "<a1 href=\"#\" name=\"duty\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
+//                    }
+//                },
                 {
                     field: "url",
                     title: "具体职能"

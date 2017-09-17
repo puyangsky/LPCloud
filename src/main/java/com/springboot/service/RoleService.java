@@ -22,6 +22,8 @@ public class RoleService {
     private RoleUtil roleUtil;
 
     private List<Role> roleList;
+    private JsonUtils<Role> jsonUtils;
+    private File roleFile;
 
     public List<Role> getRoleList() {
         if (roleList == null) {
@@ -43,7 +45,7 @@ public class RoleService {
         roleList.add(role);
         System.out.println("增加角色：" + role.toString());
 
-        dumpRole();
+        dumpRoles();
         System.out.println("将角色写入文件：" + role.getRole());
     }
 
@@ -52,38 +54,44 @@ public class RoleService {
         if (roleList == null) {
             fillRoleList();
         }
-
         roles.forEach(role -> {
             if (!roleList.contains(role)) {
                 roleList.add(role);
                 System.out.println("增加角色：" + role.toString());
             }
         });
-
-        dumpRole();
+        dumpRoles();
     }
 
 
-
-    /**
-     * 把内存中的角色列表写到文件中去
-     */
-    public void dumpRole() {
-        if (roleList == null) return;
-
-        String filePath = roleUtil.getName();
-
-        FileUtil.dump(filePath, roleList);
+    public void setRoleList(List<Role> roles) {
+        roleList = roles;
+        dumpRoles();
     }
+
 
     /**
      * 从文件中读取到角色列表
      */
     private void fillRoleList() {
         String filePath = roleUtil.getName();
-        JsonUtils<Role> jsonUtils = new JsonUtils<Role>();
+        jsonUtils = new JsonUtils<Role>();
+        roleFile = new File(filePath);
         try {
-            roleList = jsonUtils.deserialize(new File(filePath), new Role());
+            roleList = jsonUtils.deserialize(roleFile, Role.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void dumpRoles() {
+        if (roleList.size() == 0) {
+            return;
+        }
+        try {
+            jsonUtils.serialize(roleList, roleFile);
+            System.out.println("Dump " + roleList.size() + "roles into " + roleFile.getPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,7 +101,7 @@ public class RoleService {
         String path = "/Users/imac/Desktop/data/role.json";
         JsonUtils<Role> jsonUtils = new JsonUtils<Role>();
 
-        List<Role> roleList = jsonUtils.deserialize(new File(path), new Role());
+        List<Role> roleList = jsonUtils.deserialize(new File(path), Role.class);
         System.out.println(JSON.toJSONString(roleList));
 
 

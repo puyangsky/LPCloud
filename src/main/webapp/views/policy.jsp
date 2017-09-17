@@ -106,12 +106,13 @@
                 return {};
             },
             url: "/api/getPolicy?service=${adminName}",
-            columns: [{
-                checkbox: true
-            },
+            columns: [
+//                {
+//                    checkbox: true
+//                },
                 {
                     field: "subject",
-                    title: "主体",
+                    title: "管理员角色",
                     formatter: function (value, row, index)
                     {
                         return "<a1 href=\"#\" name=\"Subject\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"用户名\">" + value + "</a>";
@@ -127,7 +128,7 @@
                 },
                 {
                     field: "object",
-                    title: "客体",
+                    title: "API",
                     formatter: function (value, row, index)
                     {
                         return "<a1 href=\"#\" name=\"Object\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"用户名\">" + value + "</a>";

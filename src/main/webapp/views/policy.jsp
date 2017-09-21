@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
     <style type="text/css">
         .title {
             height: 80px;
@@ -34,21 +34,21 @@
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="../data/agentAdmin.json"
+           data-url="data/agentAdmin.json"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
            data-height="500">  </table>
 
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-table-editable.js"></script>
-<script src="../js/bootstrap-editable.js"></script>
-<script src="../js/bootstrap-table.js"></script>
-<script src="../js/bootstrap-table-zh-CN.js"></script>
-<script src="../js/tableExport.js"></script>
-<script src="../js/bootstrap-table-export.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table-editable.js"></script>
+<script src="js/bootstrap-editable.js"></script>
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+<script src="js/tableExport.js"></script>
+<script src="js/bootstrap-table-export.js"></script>
 <script>
     function tdclick(tdobject){
         var td=$(tdobject);
@@ -105,11 +105,11 @@
             queryParams: function (param) {
                 return {};
             },
-            url: "/api/getPolicy?service=${adminName}",
+            url: "api/getPolicy?service=${adminName}",
             columns: [
-//                {
-//                    checkbox: true
-//                },
+                {
+                    checkbox: true
+            },
                 {
                     field: "subject",
                     title: "管理员角色",
@@ -144,7 +144,7 @@
                         curRow[sName] = params.value;
                         $.ajax({
                             type: 'POST',
-                            url: "../data/agentAdmin.json",
+                            url: "data/agentAdmin.json",
                             data: curRow,
                             dataType: 'JSON',
                             success: function (data, textStatus, jqXHR) {
@@ -159,7 +159,7 @@
         });
 
         $("#index").click(function () {
-            window.location.href="/";
+            window.location.href="/lpcloud";
         });
     });
 </script>

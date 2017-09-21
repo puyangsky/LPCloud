@@ -16,8 +16,8 @@
     <link href="http://v3.bootcss.com/examples/signin/signin.css" rel="stylesheet">
 
     <script src="http://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->

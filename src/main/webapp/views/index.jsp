@@ -6,9 +6,9 @@
     <!--<meta charset="utf-8">-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/bootstrap-editable.css" rel="stylesheet" />
-    <link href="../css/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-editable.css" rel="stylesheet" />
+    <link href="css/bootstrap-table.min.css" rel="stylesheet" />
 
     <style type="text/css">
         .title {
@@ -74,7 +74,7 @@
            data-show-columns="true"
            data-search="true"
            data-show-export="true"
-           data-url="/api/getRole"
+           data-url="api/getRole"
            data-show-refresh="true"
            data-show-toggle="true"
            data-pagination="true"
@@ -167,14 +167,14 @@
 
 </div>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-table-editable.js"></script>
-<script src="../js/bootstrap-editable.js"></script>
-<script src="../js/bootstrap-table.js"></script>
-<script src="../js/bootstrap-table-zh-CN.js"></script>
-<script src="../js/tableExport.js"></script>
-<script src="../js/bootstrap-table-export.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-table-editable.js"></script>
+<script src="js/bootstrap-editable.js"></script>
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+<script src="js/tableExport.js"></script>
+<script src="js/bootstrap-table-export.js"></script>
 <script>
     $("#update").click(function () {
         var count = $("#adminCount").val();
@@ -243,7 +243,7 @@
             queryParams: function (param) {
                 return {};
             },
-            url: "/api/getRole",
+            url: "api/getRole",
             columns: [
 //                {
 //                    checkbox: false

@@ -5,6 +5,8 @@ import com.springboot.model.Role;
 import com.springboot.util.FileUtil;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.RoleUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -18,6 +20,8 @@ import java.util.List;
 @Component
 public class RoleService {
 
+    private static final Logger logger = LoggerFactory.getLogger(RoleService.class);
+
     @Resource
     private RoleUtil roleUtil;
 
@@ -29,6 +33,7 @@ public class RoleService {
         if (roleList == null) {
             fillRoleList();
         }
+        logger.info("get {} roles", roleList.size());
         return roleList;
     }
 
@@ -43,10 +48,10 @@ public class RoleService {
         }
 
         roleList.add(role);
-        System.out.println("增加角色：" + role.toString());
+        logger.info("增加角色：" + role.toString());
 
         dumpRoles();
-        System.out.println("将角色写入文件：" + role.getRole());
+        logger.info("将角色写入文件：" + role.getRole());
     }
 
 
@@ -57,7 +62,7 @@ public class RoleService {
         roles.forEach(role -> {
             if (!roleList.contains(role)) {
                 roleList.add(role);
-                System.out.println("增加角色：" + role.toString());
+                logger.info("增加角色：" + role.toString());
             }
         });
         dumpRoles();
@@ -91,7 +96,7 @@ public class RoleService {
         }
         try {
             jsonUtils.serialize(roleList, roleFile);
-            System.out.println("Dump " + roleList.size() + "roles into " + roleFile.getPath());
+            logger.info("Dump " + roleList.size() + "roles into " + roleFile.getPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,10 +107,10 @@ public class RoleService {
         JsonUtils<Role> jsonUtils = new JsonUtils<Role>();
 
         List<Role> roleList = jsonUtils.deserialize(new File(path), Role.class);
-        System.out.println(JSON.toJSONString(roleList));
+        logger.info(JSON.toJSONString(roleList));
 
 
-        System.out.println("=====================================");
+        logger.info("=====================================");
 
         RandomAccessFile file = new RandomAccessFile(path, "r");
         String line;
@@ -114,6 +119,6 @@ public class RoleService {
             sb.append(line);
         }
 
-        System.out.println(sb.toString());
+        logger.info(sb.toString());
     }
 }

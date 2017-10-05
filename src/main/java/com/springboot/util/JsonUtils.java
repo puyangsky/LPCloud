@@ -9,8 +9,6 @@ import java.util.List;
 /**
  * Author:      puyangsky
  * Date:        17/7/24 上午12:50
- * Method:
- * Difficulty:
  */
 public class JsonUtils<T> {
 

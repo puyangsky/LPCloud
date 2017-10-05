@@ -1,20 +1,24 @@
 package com.springboot.service;
 
-import com.alibaba.fastjson.JSON;
 import com.springboot.model.API;
 import com.springboot.model.Model;
 import com.springboot.model.Policy;
 import com.springboot.model.Role;
-import com.springboot.util.FileUtil;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
-import java.io.*;
+import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.*;
-import java.util.logging.Logger;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,28 +29,27 @@ import java.util.stream.IntStream;
 @Component
 public class PolicyService {
 
-    private Logger logger = Logger.getLogger(PolicyService.class.getName());
-    private String []services = {"nova", "glance", "keystone", "cinder"};
+    private static final Logger logger = LoggerFactory.getLogger(PolicyService.class);
     private final static int open = 0;
+    private final static double resourceWeight = 1 / 3.0; /* 资源占比重 */
+    private final static double testCaseWeight = 1 / 3.0; /* 测试用例占比重 */
+    private final static double serviceWeight = 1 / 3.0;  /* 服务占比重 */
+    private final static String baseUrl = "<a href='policy?name=%s' class='btn btn-primary btn-sm' role='button'>查看</a>";
+    public static int administratorCount = 10;//默认为10
+    private String[] services = {"nova", "glance", "keystone", "cinder"};
     private Map<String, API> APIMap = new HashMap<String, API>();
     private Set<String> APISet = new HashSet<String>();
     private Map<String, Double> scoreMap = new HashMap<String, Double>();
     private double threshold = 1.0;
-    private final static double resourceWeight = 1/3.0; /* 资源占比重 */
-    private final static double testCaseWeight = 1/3.0; /* 测试用例占比重 */
-    private final static double serviceWeight = 1/3.0;  /* 服务占比重 */
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
     private List<Policy> policyList = new ArrayList<>();
-    public static int administratorCount = 10;//默认为10
+    private Set<String> keyWordSet = new HashSet<>(); /*关键词集合*/
     private JsonUtils<Policy> jsonUtils;
     private File policyFile;
-
-    private final static String baseUrl = "<a href='policy?name=%s' class='btn btn-primary btn-sm' role='button'>查看</a>";
-
-    @Autowired
+    @Resource
     private PolicyUtil policyUtil;
 
-    @Autowired
+    @Resource
     private RoleService roleService;
 
     public List<Policy> getPolicyListByServiceName(String serviceName) {
@@ -67,6 +70,38 @@ public class PolicyService {
         }
     }
 
+    /**
+     * 解析填充关键词集合
+     */
+    public void fillKeyWordSet() {
+        if (policyList == null || policyList.size() == 0) {
+            fillPolicyList();
+        }
+        AtomicInteger atomicInteger = new AtomicInteger(0);
+        policyList.forEach(policy -> {
+            String url = policy.getObject();
+            Pattern pattern = Pattern.compile("^/v\\d\\.?\\d?/%UUID%/(\\w+[-?\\w+]*)/?.*$");
+            Matcher matcher = pattern.matcher(url);
+            System.out.println("url:" + url);
+            if (matcher.find()) {
+                System.out.println("\tfind:" + matcher.group(0) + ", match:" + matcher.group(1));
+                atomicInteger.incrementAndGet();
+            }else {
+                Pattern pattern1 = Pattern.compile("^/v\\d\\.?\\d?/(\\w+[-?\\w+]*)/?.*$");
+                Matcher matcher1 = pattern1.matcher(url);
+                if (matcher1.find()) {
+                    atomicInteger.incrementAndGet();
+                    System.out.println("\tfind1:" + matcher1.group(0) + ", match1:" + matcher1.group(1));
+                }else {
+                    System.err.println(url);
+                }
+            }
+        });
+
+        System.out.println(atomicInteger.get());
+        System.out.println(policyList.size());
+    }
+
 
     public boolean addPolicy(Policy policy) {
         String policyPath = policyUtil.getName();
@@ -81,7 +116,12 @@ public class PolicyService {
     }
 
 
-    // TODO 实施结果，修改OpenStack中的policy.json
+    /**
+     * 实施结果，修改OpenStack中的policy.json
+     * TODO 提取关键词
+     *
+     * @param model
+     */
     public void update(Model model) {
         if (administratorCount != model.getCount()) {
             administratorCount = model.getCount();
@@ -91,7 +131,7 @@ public class PolicyService {
             fillPolicyList();
         }
         List<Role> roles = new ArrayList<>(administratorCount);
-        IntStream.rangeClosed(1, administratorCount).forEach(i->{
+        IntStream.rangeClosed(1, administratorCount).forEach(i -> {
             String adminName = "admin-" + i;
             Role role = new Role();
             role.setUsername(adminName);
@@ -115,6 +155,7 @@ public class PolicyService {
 
     /**
      * 获取唯一的API
+     *
      * @throws IOException
      */
     public void getUniqueAPI() throws IOException {
@@ -139,21 +180,20 @@ public class PolicyService {
                     API api = new API(service, s, resource, testCase);
                     APIMap.put(api.getBody(), api);
                     APISet.add(api.getBody());
-                }else if (s.startsWith("##") && s.endsWith("##")) {
+                } else if (s.startsWith("##") && s.endsWith("##")) {
                     testCase = s.replaceAll("##", "");
                 }
             }
             file.close();
         }
 
-        System.out.println("行数：" + line);
+        logger.info("行数：" + line);
 
         switch (open) {
             case 0:
-                System.out.println("Unique API Map size: " + APIMap.size());
-                System.out.println("Unique API Set size: " + APISet.size());
+                logger.info("Unique API Map size: {}, Unique API Set size: {}", APIMap.size(), APISet.size());
                 for (String k : APISet) {
-                    System.out.println(k);
+                    logger.info(k);
                 }
                 break;
             case 1:
@@ -165,32 +205,35 @@ public class PolicyService {
 
     /**
      * 输出API
+     *
      * @param APIMap
      */
     private void print(Map<String, API> APIMap) {
         for (Map.Entry<String, API> entry : APIMap.entrySet()) {
-            System.out.println(entry.getValue().toString());
+            logger.info(entry.getValue().toString());
         }
     }
 
     /**
      * 从API中获取其操作的资源
+     *
      * @param api API
      * @return 资源
      */
     private String getResource(String api) {
-        String []list = api.split("\t");
+        String[] list = api.split("\t");
         if (list.length == 2) {
             api = list[1];
             api = api.replaceAll("/%UUID%", "").replaceAll("/v\\d\\.?\\d?/", "");
             return api;
-        }else {
+        } else {
             return "";
         }
     }
 
     /**
      * 处理数据
+     *
      * @param count 预期的管理员数量
      * @throws IOException
      */
@@ -207,7 +250,7 @@ public class PolicyService {
             } else if (c < count) {
                 threshold -= 0.1;
             }
-            logger.warning("Get " + c + " Administrators! Retrying...Threshold is now: " + threshold);
+            logger.warn("Get " + c + " Administrators! Retrying...Threshold is now: " + threshold);
             Thread.sleep(5000);
             splitMap();
             c = dumpResult();
@@ -263,12 +306,12 @@ public class PolicyService {
                     list1.add(api1);
                     list1.add(api2);
                     partitionResult.add(list1);
-                }else if (list1 != null && list2 != null && list1 != list2) {
+                } else if (list1 != null && list2 != null && list1 != list2) {
                     list1.addAll(list2);
                     partitionResult.remove(list2);
-                }else if (list1 != null && list2 == null) {
+                } else if (list1 != null && list2 == null) {
                     list1.add(api2);
-                }else if (list1 == null) {
+                } else if (list1 == null) {
                     list2.add(api1);
                 }
             }
@@ -283,10 +326,10 @@ public class PolicyService {
 
         for (List<String> list : partitionResult) {
             for (String api : list) {
-                System.out.println(api);
+                logger.info(api);
             }
-            System.out.println("----------------");
-            System.out.println("----------------");
+            logger.info("----------------");
+            logger.info("----------------");
         }
 
         return partitionResult.size();
@@ -302,7 +345,7 @@ public class PolicyService {
             e.printStackTrace();
         }
 
-        System.out.println("Dump " + policyList.size() + " policy into file " + policyFile.getPath());
+        logger.info("Dump " + policyList.size() + " policy into file " + policyFile.getPath());
     }
 
 }

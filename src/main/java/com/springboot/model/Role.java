@@ -3,13 +3,17 @@ package com.springboot.model;
 /**
  * Author:      puyangsky
  * Date:        17/7/24 上午12:51
- * Method:
- * Difficulty:
  */
 public class Role {
     private String role;
+
     private String username;
+
+    /**
+     * 主要职能，提取关键词
+     */
     private String duty;
+
     private String url;
 
     public Role(String role, String username, String duty, String url) {

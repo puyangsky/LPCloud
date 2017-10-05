@@ -13,8 +13,6 @@ import java.io.IOException;
 /**
  * Author:      puyangsky
  * Date:        17/6/27 上午12:34
- * Method:
- * Difficulty:
  */
 public class PathTest {
 

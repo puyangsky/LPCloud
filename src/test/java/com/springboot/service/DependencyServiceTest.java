@@ -18,12 +18,17 @@ import java.io.*;
 public class DependencyServiceTest {
 
     @Autowired
-    PolicyService service;
+    PolicyService policyService;
+
+    @Test
+    public void testFillKeyWordSet() {
+        policyService.fillKeyWordSet();
+    }
 
     @Test
     public void test() {
         try {
-            service.getUniqueAPI();
+            policyService.getUniqueAPI();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,6 +91,6 @@ public class DependencyServiceTest {
 
     @Test
     public void test2() {
-        service.update(new Model(3));
+        policyService.update(new Model(3));
     }
 }

@@ -1,6 +1,8 @@
 package com.springboot.interceptor;
 
 import com.springboot.service.RoleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -15,11 +17,11 @@ import org.springframework.stereotype.Component;
 /**
  * Author:      puyangsky
  * Date:        17/7/29 上午2:09
- * Method:
- * Difficulty:
  */
 @Component
 public class ApplicationEventListener implements ApplicationListener {
+
+    private static final Logger logger = LoggerFactory.getLogger(ApplicationEventListener.class);
 
     RoleService roleService;
 
@@ -37,7 +39,7 @@ public class ApplicationEventListener implements ApplicationListener {
         }
         else if (applicationEvent instanceof ContextStoppedEvent) { // 应用停止 }
             //TODO 在关闭之前把list持久化
-            System.out.println("要关闭啦");
+            logger.info("要关闭啦");
 
         }
         else if (applicationEvent instanceof ContextClosedEvent) { // 应用关闭 }

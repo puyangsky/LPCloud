@@ -3,8 +3,6 @@ package com.springboot.model;
 /**
  * Author:      puyangsky
  * Date:        17/7/24 上午12:51
- * Method:
- * Difficulty:
  */
 public class Policy {
     private int id;

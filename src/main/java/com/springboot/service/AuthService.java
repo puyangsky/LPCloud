@@ -3,14 +3,13 @@ package com.springboot.service;
 import com.springboot.model.Policy;
 import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import javax.annotation.Resource;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.List;
@@ -21,6 +20,7 @@ import java.util.List;
  */
 @Component
 public class AuthService {
+    private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
     @Resource
     private PolicyUtil policyUtil;
@@ -46,7 +46,7 @@ public class AuthService {
         RandomAccessFile file = new RandomAccessFile(policyFile, "r");
         String s;
         while ((s = file.readLine())!= null) {
-            System.out.println(s);
+            logger.info(s);
         }
     }
 }

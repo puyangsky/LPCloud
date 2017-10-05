@@ -7,8 +7,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * Author:      puyangsky
  * Date:        17/6/27 上午12:34
- * Method:
- * Difficulty:
  */
 
 @RunWith(SpringRunner.class)

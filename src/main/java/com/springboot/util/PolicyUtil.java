@@ -5,8 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * Author:      puyangsky
  * Date:        17/7/25 上午12:03
- * Method:
- * Difficulty:
  */
 @ConfigurationProperties(prefix = "policy")
 public class PolicyUtil {

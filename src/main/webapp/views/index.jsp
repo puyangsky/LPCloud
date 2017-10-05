@@ -264,17 +264,17 @@
                         return "<a1 href=\"#\" name=\"username\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员名称\">" + value + "</a1>";
                     }
                 },
-//                {
-//                    field: "duty",
-//                    title: "管理员职能",
-//                    formatter: function (value, row, index)
-//                    {
-//                        return "<a1 href=\"#\" name=\"duty\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员职能\">" + value + "</a1>";
-//                    }
-//                },
+                {
+                    field: "duty",
+                    title: "管理员主要职能",
+                    formatter: function (value, row, index)
+                    {
+                        return "<a1 href=\"#\" name=\"duty\" data-type=\"text\" data-pk=\""+row.Id+"\" data-title=\"管理员主要职能\">" + value + "</a1>";
+                    }
+                },
                 {
                     field: "url",
-                    title: "具体职能"
+                    title: "职能详情"
                 }],
             onClickRow: function (row, $element) {
                 curRow = row;

@@ -1,28 +1,27 @@
 package com.springboot.service;
 
+import com.springboot.BaseTest;
 import com.springboot.model.Model;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Author: puyangsky
  * Date: 17/5/12
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class DependencyServiceTest {
+public class DependencyServiceTest extends BaseTest{
 
     @Autowired
-    PolicyService policyService;
+    private PolicyService policyService;
 
     @Test
     public void testFillKeyWordSet() {
-        policyService.fillKeyWordSet();
+        List<String> keyWordList = policyService.fillKeyWordSet();
+        System.out.println(keyWordList.size());
     }
 
     @Test
@@ -91,6 +90,6 @@ public class DependencyServiceTest {
 
     @Test
     public void test2() {
-        policyService.update(new Model(3));
+        policyService.update(new Model(10));
     }
 }

@@ -184,7 +184,7 @@
             type:"POST",
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success:function(result){
+            success:function(result) {
                 $("#myModal").modal('hide');
                 alert("更新成功");
                 location.reload();

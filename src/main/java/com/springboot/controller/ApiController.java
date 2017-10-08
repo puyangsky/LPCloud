@@ -58,8 +58,12 @@ public class ApiController {
         if (model == null || model.getCount() <= 0) {
             return "Invalid parameter";
         }
-        calcService.update(model);
-        return model.toString();
+        try {
+            calcService.update(model);
+        }catch (Exception e) {
+            // ignore
+        }
+        return "success";
     }
 
 

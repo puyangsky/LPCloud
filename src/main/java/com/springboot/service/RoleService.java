@@ -7,6 +7,7 @@ import com.springboot.util.JsonUtils;
 import com.springboot.util.RoleUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -18,7 +19,7 @@ import java.util.List;
  * Date:        17/7/29 上午1:25
  */
 @Component
-public class RoleService {
+public class RoleService implements InitializingBean{
 
     private static final Logger logger = LoggerFactory.getLogger(RoleService.class);
 
@@ -26,7 +27,7 @@ public class RoleService {
     private RoleUtil roleUtil;
 
     private List<Role> roleList;
-    private JsonUtils<Role> jsonUtils;
+    private JsonUtils<Role> jsonUtils = new JsonUtils<>();
     private File roleFile;
 
     public List<Role> getRoleList() {
@@ -79,9 +80,6 @@ public class RoleService {
      * 从文件中读取到角色列表
      */
     private void fillRoleList() {
-        String filePath = roleUtil.getName();
-        jsonUtils = new JsonUtils<Role>();
-        roleFile = new File(filePath);
         try {
             roleList = jsonUtils.deserialize(roleFile, Role.class);
         } catch (IOException e) {
@@ -120,5 +118,11 @@ public class RoleService {
         }
 
         logger.info(sb.toString());
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        String filePath = roleUtil.getName();
+        roleFile = new File(filePath);
     }
 }

@@ -8,6 +8,7 @@ import com.springboot.util.JsonUtils;
 import com.springboot.util.PolicyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -27,7 +28,7 @@ import java.util.stream.IntStream;
  * Date: 17/5/9
  */
 @Component
-public class PolicyService {
+public class PolicyService implements InitializingBean{
 
     private static final Logger logger = LoggerFactory.getLogger(PolicyService.class);
     private final static int open = 0;
@@ -43,9 +44,11 @@ public class PolicyService {
     private double threshold = 1.0;
     private List<List<String>> partitionResult = new ArrayList<List<String>>();
     private List<Policy> policyList = new ArrayList<>();
-    private Set<String> keyWordSet = new HashSet<>(); /*关键词集合*/
     private JsonUtils<Policy> jsonUtils;
     private File policyFile;
+    private Map<String, List<Policy>> policyMap = new HashMap<>();
+    private List<String> keywordList;
+
     @Resource
     private PolicyUtil policyUtil;
 
@@ -70,10 +73,19 @@ public class PolicyService {
         }
     }
 
+    public List<Policy> getPolicyList() {
+        if (this.policyList == null || this.policyList.size() == 0) {
+            fillPolicyList();
+        }
+
+        return this.policyList;
+    }
+
     /**
      * 解析填充关键词集合
      */
-    public void fillKeyWordSet() {
+    public List<String> fillKeyWordSet() {
+        Map<String, Integer> keywordMap = new HashMap<>();
         if (policyList == null || policyList.size() == 0) {
             fillPolicyList();
         }
@@ -82,24 +94,39 @@ public class PolicyService {
             String url = policy.getObject();
             Pattern pattern = Pattern.compile("^/v\\d\\.?\\d?/%UUID%/(\\w+[-?\\w+]*)/?.*$");
             Matcher matcher = pattern.matcher(url);
-            System.out.println("url:" + url);
             if (matcher.find()) {
-                System.out.println("\tfind:" + matcher.group(0) + ", match:" + matcher.group(1));
-                atomicInteger.incrementAndGet();
-            }else {
+                fillPolicyMap(matcher, atomicInteger, keywordMap, policy);
+            } else {
                 Pattern pattern1 = Pattern.compile("^/v\\d\\.?\\d?/(\\w+[-?\\w+]*)/?.*$");
                 Matcher matcher1 = pattern1.matcher(url);
                 if (matcher1.find()) {
-                    atomicInteger.incrementAndGet();
-                    System.out.println("\tfind1:" + matcher1.group(0) + ", match1:" + matcher1.group(1));
-                }else {
-                    System.err.println(url);
+                    fillPolicyMap(matcher1, atomicInteger, keywordMap, policy);
+                } else {
+                    logger.error("{} not find keyword", url);
                 }
             }
         });
 
-        System.out.println(atomicInteger.get());
-        System.out.println(policyList.size());
+        // 按关键词数量降序排序
+        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+        keywordMap
+                .entrySet()
+                .stream()
+                .sorted(((o1, o2) -> o2.getValue() - o1.getValue()))
+                .forEach(entry -> sortedMap.put(entry.getKey(), entry.getValue()));
+        return new ArrayList<>(sortedMap.keySet());
+    }
+
+    private void fillPolicyMap(Matcher matcher,
+                               AtomicInteger atomicInteger,
+                               Map<String, Integer> keywordMap,
+                               Policy policy) {
+        String keyword = matcher.group(1);
+        atomicInteger.incrementAndGet();
+        keywordMap.put(keyword, keywordMap.getOrDefault(keyword, 0) + 1);
+        List<Policy> list = policyMap.getOrDefault(keyword, new ArrayList<>());
+        list.add(policy);
+        policyMap.put(keyword, list);
     }
 
 
@@ -118,11 +145,11 @@ public class PolicyService {
 
     /**
      * 实施结果，修改OpenStack中的policy.json
-     * TODO 提取关键词
+     * @newFeature: 提取关键词
      *
      * @param model
      */
-    public void update(Model model) {
+    public boolean update(Model model) {
         if (administratorCount != model.getCount()) {
             administratorCount = model.getCount();
         }
@@ -135,22 +162,54 @@ public class PolicyService {
             String adminName = "admin-" + i;
             Role role = new Role();
             role.setUsername(adminName);
-            role.setDuty("test");
             role.setRole(adminName);
             role.setUrl(String.format(baseUrl, adminName));
             roles.add(role);
         });
-        for (Policy policy : policyList) {
-            IntStream.rangeClosed(1, administratorCount).forEach(i -> {
-                String adminName = "admin-" + i;
-                if (policy.getId() % i == 0) {
-                    policy.setSubject(adminName);
+        // TODO 修改划分权限的策略，并且提取每个分组的关键词
+
+        int pageSize = keywordList.size() / administratorCount;
+        if (pageSize < 1) {
+            return false;
+        }
+
+        policyList.clear();
+
+        int i = 1;
+        int index = 0;
+        while (i <= administratorCount && index < keywordList.size()) {
+            String adminName = "admin-" + i;
+            if (i == 1) {
+                String keyword = keywordList.get(index);
+                roles.get(i-1).setDuty(keyword);
+                setSubject(keyword, adminName);
+            } else if (i > 1 && i < administratorCount){
+                String keyword1 = keywordList.get(index++);
+                String keyword2 = keywordList.get(index);
+                roles.get(i-1).setDuty(String.join("、", keyword1, keyword2));
+                setSubject(keyword1, adminName);
+                setSubject(keyword2, adminName);
+            } else {
+                String duty = keywordList.get(index) + "、" + keywordList.get(index + 1);
+                roles.get(i-1).setDuty(duty);
+                while (index < keywordList.size()) {
+                    String keyword = keywordList.get(index++);
+                    setSubject(keyword, adminName);
                 }
-            });
+            }
+            i++;
+            index++;
         }
         roleService.setRoleList(roles);
         // 把修改后的Policy持久化到policy.json中
         dumpPolicy();
+        return true;
+    }
+
+    private void setSubject(String keyword, String adminName) {
+        List<Policy> list = policyMap.get(keyword);
+        list.forEach(policy -> policy.setSubject(adminName));
+        policyList.addAll(list);
     }
 
     /**
@@ -348,4 +407,8 @@ public class PolicyService {
         logger.info("Dump " + policyList.size() + " policy into file " + policyFile.getPath());
     }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        keywordList = fillKeyWordSet();
+    }
 }
